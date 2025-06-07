@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John Charles Omagap | Portfolio</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="shortcut icon" type="image/x-icon" href="images/website-logo.png" />
+</head>
+
+<body data-theme="dark">
+  <!-- Scroll Progress -->
+  <div id="scroll-progress" class="scroll-progress"></div>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content text-center">
+      <div class="loading-spinner mx-auto mb-4"></div>
+      <div class="typing-container">
+        <span id="typing-text"></span>
+        <span class="typing-cursor">|</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="main-content" class="d-none">
+    <!-- Header -->
+    <header class="header fixed-top">
+      <nav class="navbar navbar-expand-lg py-3">
+        <div class="container">
+          <div class="navbar-brand fw-bold fs-5">John Charles Omagap</div>
+          
+          <div class="d-flex align-items-center">
+            <button id="theme-toggle" class="theme-toggle btn btn-outline-secondary me-3 p-2" aria-label="Toggle theme">
+              <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5" />
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+              </svg>
+              <svg class="theme-icon moon-icon d-none" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            </button>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#skills">Skills</a></li>
+              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#projects">Projects</a></li>
+              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#certificates">Certificates</a></li>
+              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="hero" class="hero-section">
+        <div class="container">
+          <div class="row align-items-center min-vh-100 g-3">
+            <div class="col-lg-7 order-2 order-lg-1 text-center text-lg-start" data-aos="fade-right">
+              <div class="hero-content">
+                <h1 class="hero-title display-3 fw-bold mb-3">John Charles Omagap</h1>
+                <p class="hero-subtitle fs-4 mb-4">
+                  <span id="hero-typing-text"></span>
+                </p>
+                <a href="#projects" class="btn btn-primary btn-lg px-4 py-3 fw-semibold">Check My Work</a>
+              </div>
+            </div>
+            <div class="col-lg-5 order-1 order-lg-2 text-center mb-1 mb-lg-0" data-aos="fade-left">
+              <div class="profile-image-container">
+                <img src="images/image-profile.png" alt="John Charles Omagap" class="profile-image img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about-section py-5" data-aos="fade-up">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <h2 class="section-title display-4 fw-bold mb-4 text-center">About Me</h2>
+              <p class="section-text fs-5 lh-lg text-justify">I'm John Charles Omagap, a passionate web developer currently expanding my skills in full-stack development. With a strong foundation in HTML, CSS, and JavaScript, I'm now diving deeper into React, PHP, and SQL to build more dynamic and interactive web applications. My journey in tech is evolving as I'm increasingly drawn to cybersecurity, where I plan to transition my career focus. Outside of coding, I enjoy the creative challenges of drawing and playing guitar. I'm actively seeking opportunities to learn and contribute to impactful projects while pursuing my path toward becoming a cybersecurity specialist.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="py-5" data-aos="fade-up">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+              <h2 class="section-title display-4 fw-bold mb-5">Skills & Tools</h2>
+              <div class="row g-4 justify-content-center">
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fab fa-html5"></i>
+                    </div>
+                    <h3 class="skill-name">HTML5</h3>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3 class="skill-name">CSS3</h3>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fab fa-js"></i>
+                    </div>
+                    <h3 class="skill-name">JavaScript</h3>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fab fa-react"></i>
+                    </div>
+                    <h3 class="skill-name">React</h3>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="500">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fab fa-php"></i>
+                    </div>
+                    <h3 class="skill-name">PHP</h3>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="600">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="skill-name">SQL</h3>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="700">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fab fa-git-alt"></i>
+                    </div>
+                    <h3 class="skill-name">Git</h3>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="800">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="skill-name">Cybersecurity</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-5" data-aos="fade-up">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <h2 class="section-title display-4 fw-bold text-center mb-5">Projects</h2>
+              <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                  <div class="project-card card h-100 border-0 shadow-sm">
+                    <div class="project-image">
+                      <img src="images/portfolio-mockup.png" alt="Portfolio Website" class="img-fluid">
+                    </div>
+                    <div class="card-body p-4">
+                      <h3 class="project-title card-title h4 fw-semibold mb-3">Portfolio Website - V1</h3>
+                      <p class="project-description card-text mb-4">My first web portfolio, built with React.js. Features responsive design and smooth animations.</p>
+                      <div class="d-flex gap-2 flex-wrap">
+                        <a href="https://chaaruze.github.io/portfolio/" class="btn btn-outline-primary">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-1">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15,3 21,3 21,9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
+                          Live Demo
+                        </a>
+                        <a href="https://github.com/chaaruze" class="btn btn-outline-secondary">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-1">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                          </svg>
+                          GitHub
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                  <div class="project-card card h-100 border-0 shadow-sm">
+                    <div class="project-image">
+                      <img src="images/stica-mockup.png" alt="STICA Clinic System" class="img-fluid">
+                    </div>
+                    <div class="card-body p-4">
+                      <h3 class="project-title card-title h4 fw-semibold mb-3">STICA Clinic System</h3>
+                      <p class="project-description card-text mb-4">Built with HTML, CSS, JavaScript, and PHP. Used for digitalizing medical records. Our capstone project in 12th grade.</p>
+                      <div class="d-flex gap-2 flex-wrap">
+                        <a href="#" class="btn btn-outline-primary disabled">
+                          <i class="fas fa-lock me-1"></i>
+                          Private Project
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                  <div class="project-card card h-100 border-0 shadow-sm">
+                    <div class="project-image bg-gradient">
+                      <i class="fas fa-code project-icon"></i>
+                    </div>
+                    <div class="card-body p-4">
+                      <h3 class="project-title card-title h4 fw-semibold mb-3">Portfolio Website - V2</h3>
+                      <p class="project-description card-text mb-4">Current portfolio website built with HTML, CSS, and JavaScript. Features dark/light mode, animations, and responsive design.</p>
+                      <div class="d-flex gap-2 flex-wrap">
+                        <a href="#" class="btn btn-outline-primary">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-1">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15,3 21,3 21,9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
+                          Live Demo
+                        </a>
+                        <a href="https://github.com/chaaruze" class="btn btn-outline-secondary">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-1">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                          </svg>
+                          GitHub
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certificates Section -->
+      <section id="certificates" class="py-5 bg-gradient-subtle" data-aos="fade-up">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <h2 class="section-title display-4 fw-bold text-center mb-5">Certificates</h2>
+              
+              <div class="certificate-container" data-aos="zoom-in">
+                <div class="certificate-card">
+                  <div class="certificate-image">
+                    <img src="images/certificate-1.jpg" alt="Tech Horizon Certificate" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-5" data-aos="fade-up">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <h2 class="section-title display-4 fw-bold text-center mb-5">Contact</h2>
+              
+              <!-- PHP Contact Form -->
+              <form action="form-process.php" method="POST" class="mb-5">
+                <div class="mb-3">
+                  <label for="name" class="form-label visually-hidden">Your Name</label>
+                  <input type="text" id="name" name="fullName" placeholder="Your Name" required class="form-control form-control-lg">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label visually-hidden">Your Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="Your Email Address" required class="form-control form-control-lg">
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label visually-hidden">Your Message</label>
+                  <textarea name="message" id="message" placeholder="Your Message" rows="5" required class="form-control form-control-lg"></textarea>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary btn-lg px-5 py-3 fw-semibold">Send Message</button>
+                </div>
+              </form>
+
+              <div class="text-center">
+                <p class="fs-5 mb-4">Or email me directly at <a href="mailto:0charlesomagap@gmail.com" class="text-decoration-none">0charlesomagap@gmail.com</a></p>
+                <div class="d-flex justify-content-center gap-3">
+                  <a href="#" class="social-link p-3 rounded-circle" aria-label="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                      <rect x="2" y="9" width="4" height="12" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="#" class="social-link p-3 rounded-circle" aria-label="GitHub">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                    </svg>
+                  </a>
+                  <a href="#" class="social-link p-3 rounded-circle" aria-label="Resume">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                      <polyline points="14,2 14,8 20,8" />
+                      <line x1="16" y1="13" x2="8" y2="13" />
+                      <line x1="16" y1="17" x2="8" y2="17" />
+                      <polyline points="10,9 9,9 8,9" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-section text-center py-4">
+      <div class="container">
+        <p class="footer-text mb-0">&copy; 2025 John Charles Omagap. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
