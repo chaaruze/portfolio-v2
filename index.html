@@ -17,6 +17,9 @@
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
 
@@ -296,22 +299,24 @@
             <div class="col-lg-8">
               <h2 class="section-title display-4 fw-bold text-center mb-5">Contact</h2>
               
-              <!-- PHP Contact Form -->
-              <form action="form-process.php" method="POST" class="mb-5">
+              <!-- EmailJS Contact Form -->
+              <form id="contact-form" class="mb-5">
                 <div class="mb-3">
-                  <label for="name" class="form-label visually-hidden">Your Name</label>
-                  <input type="text" id="name" name="fullName" placeholder="Your Name" required class="form-control form-control-lg">
+                  <input type="text" name="from_name" placeholder="Your Name" required class="form-control form-control-lg">
                 </div>
                 <div class="mb-3">
-                  <label for="email" class="form-label visually-hidden">Your Email Address</label>
-                  <input type="email" id="email" name="email" placeholder="Your Email Address" required class="form-control form-control-lg">
+                  <input type="email" name="from_email" placeholder="Your Email Address" required class="form-control form-control-lg">
                 </div>
                 <div class="mb-3">
-                  <label for="message" class="form-label visually-hidden">Your Message</label>
-                  <textarea name="message" id="message" placeholder="Your Message" rows="5" required class="form-control form-control-lg"></textarea>
+                  <textarea name="message" placeholder="Your Message" rows="5" required class="form-control form-control-lg"></textarea>
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary btn-lg px-5 py-3 fw-semibold">Send Message</button>
+                  <button type="submit" class="btn btn-primary btn-lg px-5 py-3 fw-semibold" id="submit-btn">
+                    <span class="btn-text">Send Message</span>
+                    <div class="btn-spinner d-none">
+                      <div class="spinner-border spinner-border-sm me-2"></div>Sending...
+                    </div>
+                  </button>
                 </div>
               </form>
 
@@ -352,6 +357,23 @@
         <p class="footer-text mb-0">&copy; 2025 John Charles Omagap. All rights reserved.</p>
       </div>
     </footer>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-notification position-fixed top-0 end-0 m-3 d-none">
+    <div class="toast-content bg-success text-white p-3 rounded shadow">
+      <div class="d-flex align-items-start">
+        <div class="toast-icon me-2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20,6 9,17 4,12" />
+          </svg>
+        </div>
+        <div class="toast-text">
+          <div class="toast-title fw-bold"></div>
+          <div class="toast-description"></div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Scripts -->

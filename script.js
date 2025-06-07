@@ -1,4 +1,3 @@
-// Enhanced JavaScript with scroll-triggered animations
 class PortfolioManager {
   constructor() {
     this.theme = localStorage.getItem("theme") || 
@@ -13,6 +12,8 @@ class PortfolioManager {
     this.setupScrollProgress();
     this.setupNavigation();
     this.setupHeroTyping();
+    this.setupEmailJS();
+    this.setupForm();
     this.setupAOS();
   }
 
@@ -42,7 +43,6 @@ class PortfolioManager {
     const loadingScreen = document.getElementById("loading-screen");
     const mainContent = document.getElementById("main-content");
     
-    // Loading screen typing animation
     const texts = ["Loading Portfolio...", "Preparing Experience...", "Almost Ready...", "Welcome!"];
     let textIndex = 0, charIndex = 0, isDeleting = false;
     const typingElement = document.getElementById("typing-text");
@@ -94,7 +94,6 @@ class PortfolioManager {
   }
 
   setupNavigation() {
-    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -107,7 +106,6 @@ class PortfolioManager {
       });
     });
 
-    // Active navigation
     window.addEventListener("scroll", () => {
       const sections = document.querySelectorAll("section[id]");
       const navLinks = document.querySelectorAll(".nav-link");
@@ -146,6 +144,42 @@ class PortfolioManager {
     }, 4500);
   }
 
+  setupEmailJS() {
+    emailjs.init('nyvjlQiyipmUqGw1n');
+  }
+
+  setupForm() {
+    const form = document.getElementById("contact-form");
+    const submitBtn = document.getElementById("submit-btn");
+    
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      const btnText = submitBtn.querySelector(".btn-text");
+      const btnSpinner = submitBtn.querySelector(".btn-spinner");
+      
+      btnText.classList.add("d-none");
+      btnSpinner.classList.remove("d-none");
+      submitBtn.disabled = true;
+
+      emailjs.sendForm('service_qple79z', 'template_2ia5xor', form)
+        .then((response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          this.showToast("Message Sent!", "Thank you for your message. I'll get back to you soon!", "success");
+          form.reset();
+        })
+        .catch((error) => {
+          console.log('FAILED...', error);
+          this.showToast("Error", "Failed to send message. Please try again or email me directly.", "error");
+        })
+        .finally(() => {
+          btnText.classList.remove("d-none");
+          btnSpinner.classList.add("d-none");
+          submitBtn.disabled = false;
+        });
+    });
+  }
+
   setupAOS() {
     if (typeof AOS !== 'undefined') {
       AOS.init({
@@ -156,6 +190,32 @@ class PortfolioManager {
         delay: 200
       });
     }
+  }
+
+  showToast(title, description, type = "success") {
+    const toast = document.getElementById("toast");
+    const toastTitle = toast.querySelector(".toast-title");
+    const toastDescription = toast.querySelector(".toast-description");
+    const toastContent = toast.querySelector(".toast-content");
+    
+    if (type === "error") {
+      toastContent.classList.remove("bg-success");
+      toastContent.classList.add("bg-danger");
+    } else {
+      toastContent.classList.remove("bg-danger");
+      toastContent.classList.add("bg-success");
+    }
+
+    toastTitle.textContent = title;
+    toastDescription.textContent = description;
+
+    toast.classList.remove("d-none");
+    setTimeout(() => toast.classList.add("show"), 100);
+
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => toast.classList.add("d-none"), 300);
+    }, 5000);
   }
 }
 
