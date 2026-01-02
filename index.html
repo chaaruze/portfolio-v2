@@ -4,6 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="John Charles Omagap - Aspiring Cybersecurity Specialist & Web Developer. View my portfolio, projects, and progress.">
+  <meta name="keywords" content="cybersecurity, web developer, portfolio, blue team, student">
+  <meta name="author" content="John Charles Omagap">
+  <meta name="theme-color" content="#0d1117">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="John Charles Omagap | Portfolio">
+  <meta property="og:description" content="Aspiring Cybersecurity Specialist & Web Developer">
+  <meta property="og:type" content="website">
+
   <title>John Charles Omagap | Portfolio</title>
 
   <!-- Bootstrap CSS -->
@@ -12,19 +23,23 @@
   <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts - JetBrains Mono for terminal aesthetic -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Marked.js for Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
 
-  <link rel="shortcut icon" type="image/x-icon" href="images/website-logo.png" />
+  <link rel="icon" type="image/png" href="images/website-logo.png">
 </head>
 
 <body data-theme="dark">
@@ -36,11 +51,34 @@
 
   <!-- Loading Screen -->
   <div id="loading-screen" class="loading-screen">
-    <div class="loading-content text-center">
-      <div class="loading-spinner mx-auto mb-4"></div>
-      <div class="typing-container">
-        <span id="typing-text"></span>
-        <span class="typing-cursor">|</span>
+    <div class="loading-content">
+      <!-- Terminal Loading Animation -->
+      <div class="terminal-container">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="terminal-btn close"></span>
+            <span class="terminal-btn minimize"></span>
+            <span class="terminal-btn maximize"></span>
+          </div>
+          <div class="terminal-title">jc@portfolio:~</div>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <span class="terminal-prompt">$</span>
+            <span id="terminal-command-1" class="terminal-text"></span>
+          </div>
+          <div class="terminal-line" id="terminal-line-2" style="display: none;">
+            <span class="terminal-prompt">$</span>
+            <span id="terminal-command-2" class="terminal-text"></span>
+          </div>
+          <div class="terminal-line" id="terminal-line-3" style="display: none;">
+            <span class="terminal-prompt">$</span>
+            <span id="terminal-command-3" class="terminal-text"></span>
+          </div>
+          <div class="terminal-line" id="terminal-line-4" style="display: none;">
+            <span class="terminal-output" id="terminal-output"></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -78,6 +116,8 @@
               <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#projects">Projects</a></li>
               <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#certificates">Certificates</a>
               </li>
+              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#progress">Progress</a></li>
+              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#security">Security</a></li>
               <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#contact">Contact</a></li>
             </ul>
           </div>
@@ -99,7 +139,7 @@
                 <a href="#projects" class="btn btn-primary btn-lg px-4 py-3 fw-semibold">Check My Work</a>
               </div>
             </div>
-            <div class="col-lg-5 order-1 order-lg-2 text-center mb-1 mb-lg-0" data-aos="fade-left">
+            <div class="col-lg-5 order-1 order-lg-2 text-center mb-0" data-aos="fade-left">
               <div class="profile-image-container">
                 <img src="images/image-profile.png" alt="John Charles Omagap" class="profile-image img-fluid">
               </div>
@@ -110,17 +150,105 @@
 
       <!-- About Section -->
       <section id="about" class="about-section py-5" data-aos="fade-up">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <h2 class="section-title display-4 fw-bold mb-4 text-center">About Me</h2>
-              <p class="section-text fs-5 lh-lg text-justify">I'm John Charles Omagap, a passionate web developer
-                currently expanding my skills in full-stack development. With a strong foundation in HTML, CSS, and
-                JavaScript, I'm now diving deeper into React, PHP, and SQL to build more dynamic and interactive web
-                applications. My journey in tech is evolving as I'm increasingly drawn to cybersecurity, where I plan to
-                transition my career focus. Outside of coding, I enjoy the creative challenges of drawing and playing
-                guitar. I'm actively seeking opportunities to learn and contribute to impactful projects while pursuing
-                my path toward becoming a cybersecurity specialist.</p>
+        <div class="container position-relative">
+          <div class="about-gradient-border">
+            <div class="about-content-wrapper">
+              <h2 class="section-title display-4 fw-bold mb-5 text-center">About Me</h2>
+
+              <!-- Profile & Bio Row -->
+              <div class="row align-items-center mb-5">
+                <div class="col-lg-4 text-center mb-4 mb-lg-0" data-aos="fade-right">
+                  <div class="about-profile-container">
+                    <div class="about-profile-border">
+                      <img src="images/image-profile-1.jpg" alt="John Charles Omagap" class="about-profile-img">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8" data-aos="fade-left">
+                  <p class="section-text fs-5 lh-lg text-justify">I'm John Charles Omagap, a passionate web developer
+                    currently expanding my skills in full-stack development. With a strong foundation in HTML, CSS, and
+                    JavaScript, I'm now diving deeper into React, PHP, and SQL to build more dynamic and interactive web
+                    applications. My journey in tech is evolving as I'm increasingly drawn to cybersecurity, where I
+                    plan to transition my career focus. Outside of coding, I enjoy the creative challenges of drawing
+                    and playing guitar. I'm actively seeking opportunities to learn and contribute to impactful projects
+                    while pursuing my path toward becoming a cybersecurity specialist.</p>
+                </div>
+              </div>
+
+              <!-- Highlight Cards -->
+              <div class="row g-3 mb-3">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="highlight-card">
+                    <div class="highlight-icon">
+                      <i class="fas fa-code"></i>
+                    </div>
+                    <h4 class="highlight-title">What I Do</h4>
+                    <p class="highlight-text">Building responsive websites and web applications with modern technologies
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                  <div class="highlight-card">
+                    <div class="highlight-icon">
+                      <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="highlight-title">My Goal</h4>
+                    <p class="highlight-text">Transitioning into cybersecurity to protect digital systems and data</p>
+                  </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                  <div class="highlight-card">
+                    <div class="highlight-icon">
+                      <i class="fas fa-palette"></i>
+                    </div>
+                    <h4 class="highlight-title">Hobbies</h4>
+                    <p class="highlight-text">Drawing, playing guitar, and exploring creative challenges</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stats Counters -->
+              <div class="row g-4 mb-5">
+                <div class="col-4" data-aos="fade-up" data-aos-delay="100">
+                  <div class="stat-card">
+                    <div class="stat-number" data-target="7">0</div>
+                    <div class="stat-label">Months Coding</div>
+                  </div>
+                </div>
+                <div class="col-4" data-aos="fade-up" data-aos-delay="200">
+                  <div class="stat-card">
+                    <div class="stat-number" data-target="2">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                  </div>
+                </div>
+                <div class="col-4" data-aos="fade-up" data-aos-delay="300">
+                  <div class="stat-card">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Technologies</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Journey Timeline -->
+              <div class="timeline-container" data-aos="fade-up">
+                <h4 class="text-center mb-4 fw-semibold">My Journey</h4>
+                <div class="timeline">
+                  <div class="timeline-item active">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                      <h5>Student</h5>
+                      <p>Learning & Building</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item future">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                      <h5>Cybersecurity</h5>
+                      <p>Blue Team Specialist</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -197,6 +325,55 @@
                     <h3 class="skill-name">Cybersecurity</h3>
                   </div>
                 </div>
+                <!-- Blue Team Tools -->
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="900">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fab fa-linux"></i>
+                    </div>
+                    <h3 class="skill-name">Linux</h3>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="1000">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="skill-name">Wireshark</h3>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="1100">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="skill-name">SIEM</h3>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="1200">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fas fa-bug"></i>
+                    </div>
+                    <h3 class="skill-name">Malware Analysis</h3>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="1300">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3 class="skill-name">Threat Hunting</h3>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="1400">
+                  <div class="skill-card">
+                    <div class="skill-icon">
+                      <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="skill-name">Log Analysis</h3>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -251,10 +428,10 @@
                       <p class="project-description card-text mb-4">Built with HTML, CSS, JavaScript, and PHP. Used for
                         digitalizing medical records. Our capstone project in 12th grade.</p>
                       <div class="d-flex gap-2 flex-wrap">
-                        <a href="#" class="btn btn-outline-primary disabled">
+                        <span class="btn btn-outline-secondary disabled">
                           <i class="fas fa-lock me-1"></i>
                           Private Project
-                        </a>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -269,15 +446,10 @@
                       <p class="project-description card-text mb-4">Current portfolio website built with HTML, CSS, and
                         JavaScript. Features dark/light mode, animations, and responsive design.</p>
                       <div class="d-flex gap-2 flex-wrap">
-                        <a href="#" class="btn btn-outline-primary">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" class="me-1">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15,3 21,3 21,9" />
-                            <line x1="10" y1="14" x2="21" y2="3" />
-                          </svg>
-                          Live Demo
-                        </a>
+                        <span class="btn btn-primary">
+                          <i class="fas fa-code me-1"></i>
+                          Current Project
+                        </span>
                         <a href="https://github.com/chaaruze" class="btn btn-outline-secondary">
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" class="me-1">
@@ -307,6 +479,114 @@
                 <div class="certificate-card">
                   <div class="certificate-image">
                     <img src="images/certificate-1.jpg" alt="Tech Horizon Certificate" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Progress Log Section -->
+      <section id="progress" class="py-5" data-aos="fade-up">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <h2 class="section-title display-4 fw-bold text-center mb-5">Progress Log</h2>
+
+              <!-- Clean Card Progress Container -->
+              <div class="progress-card">
+                <div class="progress-card-header">
+                  <i class="fas fa-terminal me-2"></i>~/progress/PROGRESS_LOG.md
+                </div>
+                <div class="progress-card-body" id="progress-markdown-content">
+                  <div class="text-center py-4">
+                    <i class="fas fa-spinner fa-spin fa-2x mb-3"></i>
+                    <p>Loading...</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center gap-3 mt-4">
+                <button id="progress-reload" class="btn btn-outline-primary">
+                  <i class="fas fa-sync-alt me-2"></i>Reload
+                </button>
+              </div>
+              <p id="progress-last-updated" class="text-center mt-3 small text-secondary"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cybersecurity Journey Section -->
+      <section id="security" class="py-5" data-aos="fade-up">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <h2 class="section-title display-4 fw-bold text-center mb-5">Cybersecurity Journey</h2>
+              <p class="text-center text-secondary mb-5">Building my path to becoming a Blue Team Specialist</p>
+
+              <div class="row g-4">
+                <!-- CTF Writeups -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                  <div class="coming-soon-card">
+                    <i class="fas fa-flag"></i>
+                    <h5>CTF Writeups</h5>
+                    <p>Coming soon...</p>
+                  </div>
+                </div>
+
+                <!-- Lab Environment -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                  <div class="coming-soon-card">
+                    <i class="fas fa-server"></i>
+                    <h5>Home Lab</h5>
+                    <p>Coming soon...</p>
+                  </div>
+                </div>
+
+                <!-- Security Tools -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                  <div class="coming-soon-card">
+                    <i class="fas fa-tools"></i>
+                    <h5>Security Tools</h5>
+                    <p>Coming soon...</p>
+                  </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                  <div class="coming-soon-card">
+                    <i class="fas fa-certificate"></i>
+                    <h5>Certifications</h5>
+                    <p>Coming soon...</p>
+                  </div>
+                </div>
+
+                <!-- TryHackMe/HTB -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                  <div class="coming-soon-card">
+                    <i class="fas fa-skull-crossbones"></i>
+                    <h5>TryHackMe / HTB</h5>
+                    <p>Coming soon...</p>
+                  </div>
+                </div>
+
+                <!-- Security Blog -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                  <div class="coming-soon-card">
+                    <i class="fas fa-blog"></i>
+                    <h5>Security Blog</h5>
+                    <p>Coming soon...</p>
+                  </div>
+                </div>
+
+                <!-- GitHub Projects -->
+                <div class="col-12" data-aos="fade-up" data-aos-delay="700">
+                  <div class="coming-soon-card">
+                    <i class="fab fa-github"></i>
+                    <h5>Security Projects</h5>
+                    <p>Open-source security tools and scripts - Coming soon...</p>
                   </div>
                 </div>
               </div>

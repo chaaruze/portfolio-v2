@@ -1,7 +1,17 @@
 class PortfolioManager {
   constructor() {
+    // Detect browser theme preference
     this.theme = localStorage.getItem("theme") ||
       (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+    // Listen for system theme changes
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e => {
+      if (!localStorage.getItem("theme")) {
+        this.theme = e.matches ? "dark" : "light";
+        this.applyTheme();
+      }
+    });
+
     this.init();
   }
 
@@ -16,6 +26,8 @@ class PortfolioManager {
     this.setupForm();
     this.setupAOS();
     this.setupMatrixRain();
+    this.setupStatCounters();
+    this.setupProgressLog();
   }
 
   setupMatrixRain() {
@@ -32,47 +44,79 @@ class PortfolioManager {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Matrix characters - mix of katakana, numbers, and symbols
-    const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%^&*()';
+    // Binary characters - 0s and 1s only
+    const chars = '01';
     const charArray = chars.split('');
 
     const fontSize = 14;
-    const columns = Math.floor(canvas.width / fontSize);
+    let columns = Math.floor(canvas.width / fontSize);
 
-    // Array to track the y position of each column
-    const drops = [];
-    for (let i = 0; i < columns; i++) {
-      drops[i] = Math.random() * -100;
-    }
+    // Array to track the y position and speed of each column
+    let drops = [];
+    let speeds = [];
 
-    // Get the accent color based on theme
+    const initDrops = () => {
+      columns = Math.floor(canvas.width / fontSize);
+      drops = [];
+      speeds = [];
+      for (let i = 0; i < columns; i++) {
+        drops[i] = Math.random() * -100;
+        speeds[i] = 0.5 + Math.random() * 1.5; // Variable speeds for 3D depth effect
+      }
+    };
+    initDrops();
+    window.addEventListener('resize', initDrops);
+
+    // Parallax scroll multiplier
+    let parallaxOffset = 0;
+    window.addEventListener('scroll', () => {
+      parallaxOffset = window.pageYOffset * 0.3;
+    });
+
+    // Get the rain color - yellow to match accent
     const getMatrixColor = () => {
+      return '#ffc107';
+    };
+
+    // Get background color for fade effect
+    const getBackgroundColor = () => {
       const theme = document.body.getAttribute('data-theme');
-      return theme === 'light' ? '#00aa00' : '#00ff41';
+      return theme === 'light' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)';
     };
 
     const draw = () => {
-      // Semi-transparent black to create fade effect
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      // Semi-transparent background to create fade effect
+      ctx.fillStyle = getBackgroundColor();
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = getMatrixColor();
-      ctx.font = `${fontSize}px monospace`;
+      const baseColor = getMatrixColor();
 
       for (let i = 0; i < drops.length; i++) {
         // Random character
         const char = charArray[Math.floor(Math.random() * charArray.length)];
 
+        // Calculate y position with parallax offset
+        const yPos = (drops[i] * fontSize) + (parallaxOffset * speeds[i] * 0.1);
+
+        // Vary opacity based on speed (creates depth/3D effect)
+        const opacity = 0.3 + (speeds[i] / 2) * 0.7;
+        ctx.fillStyle = baseColor.replace(')', `, ${opacity})`).replace('rgb', 'rgba').replace('#000000', 'rgba(0,0,0').replace('#ffffff', 'rgba(255,255,255');
+
+        // Vary font size slightly based on speed for depth
+        const depthFontSize = fontSize * (0.8 + speeds[i] * 0.2);
+        ctx.font = `${depthFontSize}px monospace`;
+
         // Draw the character
-        ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+        ctx.fillText(char, i * fontSize, yPos);
 
         // Reset drop to top with random delay when it reaches bottom
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
           drops[i] = 0;
+          speeds[i] = 0.5 + Math.random() * 1.5;
         }
 
-        // Move drop down
-        drops[i]++;
+        // Move drop down based on individual speed
+        drops[i] += speeds[i];
       }
     };
 
@@ -106,44 +150,56 @@ class PortfolioManager {
     const loadingScreen = document.getElementById("loading-screen");
     const mainContent = document.getElementById("main-content");
 
-    const texts = ["Loading Portfolio...", "Preparing Experience...", "Almost Ready...", "Welcome!"];
-    let textIndex = 0, charIndex = 0, isDeleting = false;
-    const typingElement = document.getElementById("typing-text");
+    // Terminal commands to type
+    const commands = [
+      { id: 'terminal-command-1', text: 'cd ~/portfolio', delay: 0 },
+      { id: 'terminal-command-2', text: 'npm run build', delay: 1200, showLine: 'terminal-line-2' },
+      { id: 'terminal-command-3', text: './start-server.sh', delay: 2400, showLine: 'terminal-line-3' }
+    ];
 
-    const type = () => {
-      const currentText = texts[textIndex];
-
-      if (isDeleting) {
-        typingElement.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        typingElement.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
-      }
-
-      let typeSpeed = isDeleting ? 50 : 100;
-
-      if (!isDeleting && charIndex === currentText.length) {
-        typeSpeed = 1000;
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % texts.length;
-        typeSpeed = 500;
-      }
-
-      setTimeout(type, typeSpeed);
+    const typeCommand = (element, text, callback) => {
+      let i = 0;
+      const interval = setInterval(() => {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(interval);
+          if (callback) callback();
+        }
+      }, 50);
     };
 
-    type();
+    // Start terminal animation
+    commands.forEach((cmd, index) => {
+      setTimeout(() => {
+        if (cmd.showLine) {
+          document.getElementById(cmd.showLine).style.display = 'flex';
+        }
+        const element = document.getElementById(cmd.id);
+        typeCommand(element, cmd.text, () => {
+          if (index === commands.length - 1) {
+            // Show output after last command
+            setTimeout(() => {
+              const outputLine = document.getElementById('terminal-line-4');
+              const output = document.getElementById('terminal-output');
+              outputLine.style.display = 'block';
+              output.textContent = '✓ Portfolio ready! Launching...';
+              output.style.color = '#00ff41';
+            }, 500);
+          }
+        });
+      }, cmd.delay);
+    });
 
+    // Hide loading screen after animation completes
     setTimeout(() => {
       loadingScreen.style.opacity = "0";
       setTimeout(() => {
         loadingScreen.style.display = "none";
         mainContent.classList.remove("d-none");
       }, 500);
-    }, 4000);
+    }, 4500);
   }
 
   setupScrollProgress() {
@@ -157,6 +213,8 @@ class PortfolioManager {
   }
 
   setupNavigation() {
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -165,6 +223,11 @@ class PortfolioManager {
           const headerHeight = document.querySelector('.header').offsetHeight;
           const targetPosition = target.offsetTop - headerHeight;
           window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+
+          // Close hamburger menu on mobile after clicking a link
+          if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            navbarCollapse.classList.remove('show');
+          }
         }
       });
     });
@@ -279,6 +342,111 @@ class PortfolioManager {
       toast.classList.remove("show");
       setTimeout(() => toast.classList.add("d-none"), 300);
     }, 5000);
+  }
+
+  setupStatCounters() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (!statNumbers.length) return;
+
+    const animateCounter = (element) => {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          element.textContent = Math.floor(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target;
+        }
+      };
+
+      updateCounter();
+    };
+
+    // Use Intersection Observer to trigger animation when visible
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    statNumbers.forEach(stat => observer.observe(stat));
+  }
+
+  setupProgressLog() {
+    const MARKDOWN_FILE = 'PROGRESS_LOG.md';
+    const markdownContainer = document.getElementById('progress-markdown-content');
+    const lastUpdated = document.getElementById('progress-last-updated');
+    const reloadBtn = document.getElementById('progress-reload');
+
+    if (!markdownContainer) return;
+
+    // Load markdown on page load
+    loadMarkdown();
+
+    // Reload button
+    reloadBtn?.addEventListener('click', () => {
+      loadMarkdown();
+    });
+
+    async function loadMarkdown() {
+      markdownContainer.innerHTML = `
+        <div class="text-center py-5">
+          <i class="fas fa-spinner fa-spin fa-3x text-primary mb-3"></i>
+          <p class="text-secondary">Loading progress log...</p>
+        </div>
+      `;
+
+      try {
+        const response = await fetch(MARKDOWN_FILE + '?t=' + Date.now());
+
+        if (!response.ok) {
+          throw new Error('Failed to load');
+        }
+
+        const markdown = await response.text();
+
+        if (typeof marked !== 'undefined') {
+          marked.setOptions({ gfm: true, breaks: true });
+          const html = marked.parse(markdown);
+          markdownContainer.innerHTML = html;
+          convertCheckboxes();
+          lastUpdated.textContent = `Last updated: ${new Date().toLocaleString()}`;
+        } else {
+          throw new Error('Marked.js not loaded');
+        }
+      } catch (error) {
+        console.error('Error loading markdown:', error);
+        markdownContainer.innerHTML = `
+          <div class="text-center py-5">
+            <i class="fas fa-exclamation-triangle fa-3x text-danger mb-3"></i>
+            <h4>Failed to load progress log</h4>
+            <p class="text-secondary">Make sure PROGRESS_LOG.md exists in the portfolio folder.</p>
+          </div>
+        `;
+      }
+    }
+
+    function convertCheckboxes() {
+      const listItems = markdownContainer.querySelectorAll('li');
+      listItems.forEach(li => {
+        const text = li.innerHTML;
+        if (text.startsWith('[ ] ')) {
+          li.innerHTML = '<input type="checkbox" disabled> ' + text.substring(4);
+        } else if (text.startsWith('[x] ') || text.startsWith('[X] ')) {
+          li.innerHTML = '<input type="checkbox" checked disabled> ' + text.substring(4);
+        } else if (text.startsWith('[/] ')) {
+          li.innerHTML = '<input type="checkbox" disabled style="opacity: 0.5;"> <em>(In Progress)</em> ' + text.substring(4);
+        }
+      });
+    }
   }
 }
 
