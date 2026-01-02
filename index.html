@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>John Charles Omagap | Portfolio</title>
-  
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+
   <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <!-- EmailJS SDK -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
 
@@ -27,6 +28,9 @@
 </head>
 
 <body data-theme="dark">
+  <!-- Matrix Rain Background -->
+  <canvas id="matrix-rain"></canvas>
+
   <!-- Scroll Progress -->
   <div id="scroll-progress" class="scroll-progress"></div>
 
@@ -48,14 +52,17 @@
       <nav class="navbar navbar-expand-lg py-3">
         <div class="container">
           <div class="navbar-brand fw-bold fs-5">John Charles Omagap</div>
-          
+
           <div class="d-flex align-items-center">
             <button id="theme-toggle" class="theme-toggle btn btn-outline-secondary me-3 p-2" aria-label="Toggle theme">
-              <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="5" />
-                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                <path
+                  d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
               </svg>
-              <svg class="theme-icon moon-icon d-none" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg class="theme-icon moon-icon d-none" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
               </svg>
             </button>
@@ -69,7 +76,8 @@
               <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#about">About</a></li>
               <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#skills">Skills</a></li>
               <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#projects">Projects</a></li>
-              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#certificates">Certificates</a></li>
+              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#certificates">Certificates</a>
+              </li>
               <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#contact">Contact</a></li>
             </ul>
           </div>
@@ -106,7 +114,13 @@
           <div class="row justify-content-center">
             <div class="col-lg-8">
               <h2 class="section-title display-4 fw-bold mb-4 text-center">About Me</h2>
-              <p class="section-text fs-5 lh-lg text-justify">I'm John Charles Omagap, a passionate web developer currently expanding my skills in full-stack development. With a strong foundation in HTML, CSS, and JavaScript, I'm now diving deeper into React, PHP, and SQL to build more dynamic and interactive web applications. My journey in tech is evolving as I'm increasingly drawn to cybersecurity, where I plan to transition my career focus. Outside of coding, I enjoy the creative challenges of drawing and playing guitar. I'm actively seeking opportunities to learn and contribute to impactful projects while pursuing my path toward becoming a cybersecurity specialist.</p>
+              <p class="section-text fs-5 lh-lg text-justify">I'm John Charles Omagap, a passionate web developer
+                currently expanding my skills in full-stack development. With a strong foundation in HTML, CSS, and
+                JavaScript, I'm now diving deeper into React, PHP, and SQL to build more dynamic and interactive web
+                applications. My journey in tech is evolving as I'm increasingly drawn to cybersecurity, where I plan to
+                transition my career focus. Outside of coding, I enjoy the creative challenges of drawing and playing
+                guitar. I'm actively seeking opportunities to learn and contribute to impactful projects while pursuing
+                my path toward becoming a cybersecurity specialist.</p>
             </div>
           </div>
         </div>
@@ -203,10 +217,12 @@
                     </div>
                     <div class="card-body p-4">
                       <h3 class="project-title card-title h4 fw-semibold mb-3">Portfolio Website - V1</h3>
-                      <p class="project-description card-text mb-4">My first web portfolio, built with React.js. Features responsive design and smooth animations.</p>
+                      <p class="project-description card-text mb-4">My first web portfolio, built with React.js.
+                        Features responsive design and smooth animations.</p>
                       <div class="d-flex gap-2 flex-wrap">
                         <a href="https://chaaruze.github.io/portfolio/" class="btn btn-outline-primary">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-1">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" class="me-1">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                             <polyline points="15,3 21,3 21,9" />
                             <line x1="10" y1="14" x2="21" y2="3" />
@@ -214,8 +230,10 @@
                           Live Demo
                         </a>
                         <a href="https://github.com/chaaruze" class="btn btn-outline-secondary">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-1">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" class="me-1">
+                            <path
+                              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                           </svg>
                           GitHub
                         </a>
@@ -230,7 +248,8 @@
                     </div>
                     <div class="card-body p-4">
                       <h3 class="project-title card-title h4 fw-semibold mb-3">STICA Clinic System</h3>
-                      <p class="project-description card-text mb-4">Built with HTML, CSS, JavaScript, and PHP. Used for digitalizing medical records. Our capstone project in 12th grade.</p>
+                      <p class="project-description card-text mb-4">Built with HTML, CSS, JavaScript, and PHP. Used for
+                        digitalizing medical records. Our capstone project in 12th grade.</p>
                       <div class="d-flex gap-2 flex-wrap">
                         <a href="#" class="btn btn-outline-primary disabled">
                           <i class="fas fa-lock me-1"></i>
@@ -247,10 +266,12 @@
                     </div>
                     <div class="card-body p-4">
                       <h3 class="project-title card-title h4 fw-semibold mb-3">Portfolio Website - V2</h3>
-                      <p class="project-description card-text mb-4">Current portfolio website built with HTML, CSS, and JavaScript. Features dark/light mode, animations, and responsive design.</p>
+                      <p class="project-description card-text mb-4">Current portfolio website built with HTML, CSS, and
+                        JavaScript. Features dark/light mode, animations, and responsive design.</p>
                       <div class="d-flex gap-2 flex-wrap">
                         <a href="#" class="btn btn-outline-primary">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-1">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" class="me-1">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                             <polyline points="15,3 21,3 21,9" />
                             <line x1="10" y1="14" x2="21" y2="3" />
@@ -258,8 +279,10 @@
                           Live Demo
                         </a>
                         <a href="https://github.com/chaaruze" class="btn btn-outline-secondary">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-1">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" class="me-1">
+                            <path
+                              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                           </svg>
                           GitHub
                         </a>
@@ -279,7 +302,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-10">
               <h2 class="section-title display-4 fw-bold text-center mb-5">Certificates</h2>
-              
+
               <div class="certificate-container" data-aos="zoom-in">
                 <div class="certificate-card">
                   <div class="certificate-image">
@@ -298,17 +321,20 @@
           <div class="row justify-content-center">
             <div class="col-lg-8">
               <h2 class="section-title display-4 fw-bold text-center mb-5">Contact</h2>
-              
+
               <!-- EmailJS Contact Form -->
               <form id="contact-form" class="mb-5">
                 <div class="mb-3">
-                  <input type="text" name="from_name" placeholder="Your Name" required class="form-control form-control-lg">
+                  <input type="text" name="from_name" placeholder="Your Name" required
+                    class="form-control form-control-lg">
                 </div>
                 <div class="mb-3">
-                  <input type="email" name="from_email" placeholder="Your Email Address" required class="form-control form-control-lg">
+                  <input type="email" name="from_email" placeholder="Your Email Address" required
+                    class="form-control form-control-lg">
                 </div>
                 <div class="mb-3">
-                  <textarea name="message" placeholder="Your Message" rows="5" required class="form-control form-control-lg"></textarea>
+                  <textarea name="message" placeholder="Your Message" rows="5" required
+                    class="form-control form-control-lg"></textarea>
                 </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary btn-lg px-5 py-3 fw-semibold" id="submit-btn">
@@ -321,9 +347,11 @@
               </form>
 
               <div class="text-center">
-                <p class="fs-5 mb-4">Or email me directly at <a href="mailto:0charlesomagap@gmail.com" class="text-decoration-none">0charlesomagap@gmail.com</a></p>
+                <p class="fs-5 mb-4">Or email me directly at <a href="mailto:0charlesomagap@gmail.com"
+                    class="text-decoration-none">0charlesomagap@gmail.com</a></p>
                 <div class="d-flex justify-content-center gap-3">
-                  <a href="https://www.linkedin.com/in/charles-omagap-670958306/" class="social-link p-3 rounded-circle" aria-label="LinkedIn">
+                  <a href="https://www.linkedin.com/in/charles-omagap-670958306/" class="social-link p-3 rounded-circle"
+                    aria-label="LinkedIn">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                       <rect x="2" y="9" width="4" height="12" />
@@ -332,7 +360,8 @@
                   </a>
                   <a href="https://github.com/chaaruze" class="social-link p-3 rounded-circle" aria-label="GitHub">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                     </svg>
                   </a>
                 </div>
@@ -373,4 +402,5 @@
   <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>

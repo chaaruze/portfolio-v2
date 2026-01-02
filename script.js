@@ -1,6 +1,6 @@
 class PortfolioManager {
   constructor() {
-    this.theme = localStorage.getItem("theme") || 
+    this.theme = localStorage.getItem("theme") ||
       (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     this.init();
   }
@@ -15,13 +15,76 @@ class PortfolioManager {
     this.setupEmailJS();
     this.setupForm();
     this.setupAOS();
+    this.setupMatrixRain();
+  }
+
+  setupMatrixRain() {
+    const canvas = document.getElementById('matrix-rain');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Matrix characters - mix of katakana, numbers, and symbols
+    const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%^&*()';
+    const charArray = chars.split('');
+
+    const fontSize = 14;
+    const columns = Math.floor(canvas.width / fontSize);
+
+    // Array to track the y position of each column
+    const drops = [];
+    for (let i = 0; i < columns; i++) {
+      drops[i] = Math.random() * -100;
+    }
+
+    // Get the accent color based on theme
+    const getMatrixColor = () => {
+      const theme = document.body.getAttribute('data-theme');
+      return theme === 'light' ? '#00aa00' : '#00ff41';
+    };
+
+    const draw = () => {
+      // Semi-transparent black to create fade effect
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = getMatrixColor();
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        // Random character
+        const char = charArray[Math.floor(Math.random() * charArray.length)];
+
+        // Draw the character
+        ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+
+        // Reset drop to top with random delay when it reaches bottom
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        // Move drop down
+        drops[i]++;
+      }
+    };
+
+    // Run animation at ~30fps for performance
+    setInterval(draw, 33);
   }
 
   applyTheme() {
     document.body.setAttribute("data-theme", this.theme);
     const sunIcon = document.querySelector(".sun-icon");
     const moonIcon = document.querySelector(".moon-icon");
-    
+
     if (this.theme === "dark") {
       sunIcon?.classList.remove("d-none");
       moonIcon?.classList.add("d-none");
@@ -42,14 +105,14 @@ class PortfolioManager {
   setupLoading() {
     const loadingScreen = document.getElementById("loading-screen");
     const mainContent = document.getElementById("main-content");
-    
+
     const texts = ["Loading Portfolio...", "Preparing Experience...", "Almost Ready...", "Welcome!"];
     let textIndex = 0, charIndex = 0, isDeleting = false;
     const typingElement = document.getElementById("typing-text");
 
     const type = () => {
       const currentText = texts[textIndex];
-      
+
       if (isDeleting) {
         typingElement.textContent = currentText.substring(0, charIndex - 1);
         charIndex--;
@@ -151,13 +214,13 @@ class PortfolioManager {
   setupForm() {
     const form = document.getElementById("contact-form");
     const submitBtn = document.getElementById("submit-btn");
-    
+
     form?.addEventListener("submit", (e) => {
       e.preventDefault();
-      
+
       const btnText = submitBtn.querySelector(".btn-text");
       const btnSpinner = submitBtn.querySelector(".btn-spinner");
-      
+
       btnText.classList.add("d-none");
       btnSpinner.classList.remove("d-none");
       submitBtn.disabled = true;
@@ -197,7 +260,7 @@ class PortfolioManager {
     const toastTitle = toast.querySelector(".toast-title");
     const toastDescription = toast.querySelector(".toast-description");
     const toastContent = toast.querySelector(".toast-content");
-    
+
     if (type === "error") {
       toastContent.classList.remove("bg-success");
       toastContent.classList.add("bg-danger");
