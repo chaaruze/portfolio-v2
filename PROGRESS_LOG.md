@@ -1,7 +1,5 @@
 # 📊 Personal Progress Log
 
-> **Private Document** - This file is for your personal tracking only. Keep it in a private location or add to `.gitignore` to exclude from version control.
-
 ---
 
 ## Quick Stats
@@ -9,8 +7,8 @@
 | Metric | Current | Last Updated |
 |--------|---------|--------------|
 | 📅 Months Coding | 7 | January 2026 |
-| 🚀 Projects Completed | 2 | January 2026 |
-| 🛠️ Technologies Known | 8 | January 2026 |
+| 🚀 Projects Completed | 3 | January 2026 |
+| 🛠️ Technologies Known | 14 | January 2026 |
 | 🎯 Current Phase | Web Developer | - |
 
 ---
@@ -39,21 +37,12 @@
 - ✅ Implemented animated stats counters
 - ✅ Created journey timeline
 
-### December 2025
-- (Add your progress here)
-
-### November 2025
-- (Add your progress here)
-
 ---
 
 ## 🛠️ Skills Development Log
 
 ### Currently Learning
-- [ ] Advanced React (hooks, context, redux)
-- [ ] PHP backend development
-- [ ] SQL database design
-- [ ] Git advanced workflows
+- [ ] TryHackMe
 
 ### Mastered
 - [x] HTML5
@@ -63,16 +52,10 @@
 - [x] Responsive design
 - [x] Bootstrap framework
 - [x] Git basics
-- [x] Basic cybersecurity concepts
 
 ---
 
 ## 📝 Project Ideas Backlog
-
-1. **Security Scanner Tool** - Simple web vulnerability checker
-2. **Password Manager** - Encrypted password storage app
-3. **Network Monitor Dashboard** - Visual network traffic analyzer
-4. **Two-Factor Auth Demo** - 2FA implementation example
 
 ---
 
@@ -81,27 +64,22 @@
 | Date | Achievement |
 |------|-------------|
 | Jan 2026 | Enhanced portfolio v2 with animations |
-| (Date) | Completed first React project |
-| (Date) | Completed STICA Clinic System (Capstone) |
+| June 2024 | Completed first React project |
+| June 2024 | Completed STICA Clinic System (Capstone) |
 
 ---
 
 ## 📚 Learning Resources
 
 ### Courses
-- (Add courses you're taking)
-
-### Books
-- (Add books you're reading)
+- Bachelor's degree of Computer Science
 
 ### Websites
-- (Add helpful resources)
+- TryHackMe
 
 ---
 
 ## 💭 Reflections & Notes
-
-*(Use this space for personal reflections on your journey)*
 
 ---
 
