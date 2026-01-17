@@ -21,19 +21,19 @@ jobs:
 
       - name: Update Local Log
         run: |
-          # Copy the README from the other repo to PROGRESS_LOG.md here
-          cp temp-learning/README.md PROGRESS_LOG.md
+          # Copy the README from the other repo to LEARNING_LOG.md here
+          cp temp-learning/README.md LEARNING_LOG.md
           rm -rf temp-learning
 
       - name: Commit and Push Changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add PROGRESS_LOG.md
+          git add LEARNING_LOG.md
           # Only commit if there are actual changes
           if git diff --staged --quiet; then
             echo "No changes to sync."
           else
-            git commit -m "Sync: Pulled latest update from Learning-Programming README"
+            git commit -m "Sync: Pulled latest update from Learning-Programming README to LEARNING_LOG.md"
             git push
           fi

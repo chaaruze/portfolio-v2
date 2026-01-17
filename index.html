@@ -494,11 +494,24 @@
               <h2 class="section-title display-4 fw-bold text-center mb-5">Progress Log</h2>
 
               <!-- Clean Card Progress Container -->
-              <div class="progress-card">
+              <div class="progress-card mb-4" data-aos="fade-up">
                 <div class="progress-card-header">
-                  <i class="fas fa-terminal me-2"></i>~/progress/PROGRESS_LOG.md
+                  <i class="fas fa-terminal me-2"></i>~/progress/PROGRESS_LOG.md (Portfolio Updates)
                 </div>
                 <div class="progress-card-body" id="progress-markdown-content">
+                  <div class="text-center py-4">
+                    <i class="fas fa-spinner fa-spin fa-2x mb-3"></i>
+                    <p>Loading...</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Learning Log Container -->
+              <div class="progress-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="progress-card-header">
+                  <i class="fas fa-book-reader me-2"></i>~/learning/LEARNING_LOG.md (Synced from External Repo)
+                </div>
+                <div class="progress-card-body" id="learning-markdown-content">
                   <div class="text-center py-4">
                     <i class="fas fa-spinner fa-spin fa-2x mb-3"></i>
                     <p>Loading...</p>

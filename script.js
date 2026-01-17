@@ -381,72 +381,75 @@ class PortfolioManager {
   }
 
   setupProgressLog() {
-    const MARKDOWN_FILE = 'PROGRESS_LOG.md';
-    const markdownContainer = document.getElementById('progress-markdown-content');
+    this.loadMarkdownFile('PROGRESS_LOG.md', 'progress-markdown-content');
+    this.loadMarkdownFile('LEARNING_LOG.md', 'learning-markdown-content');
+
     const lastUpdated = document.getElementById('progress-last-updated');
     const reloadBtn = document.getElementById('progress-reload');
 
-    if (!markdownContainer) return;
+    // Set initial last updated time
+    if (lastUpdated) lastUpdated.textContent = `Last updated: ${new Date().toLocaleString()}`;
 
-    // Load markdown on page load
-    loadMarkdown();
-
-    // Reload button
+    // Reload button reloads both
     reloadBtn?.addEventListener('click', () => {
-      loadMarkdown();
+      this.loadMarkdownFile('PROGRESS_LOG.md', 'progress-markdown-content');
+      this.loadMarkdownFile('LEARNING_LOG.md', 'learning-markdown-content');
+      if (lastUpdated) lastUpdated.textContent = `Last updated: ${new Date().toLocaleString()}`;
     });
+  }
 
-    async function loadMarkdown() {
-      markdownContainer.innerHTML = `
+  async loadMarkdownFile(filename, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = `
         <div class="text-center py-5">
           <i class="fas fa-spinner fa-spin fa-3x text-primary mb-3"></i>
-          <p class="text-secondary">Loading progress log...</p>
+          <p class="text-secondary">Loading ${filename}...</p>
         </div>
       `;
 
-      try {
-        const response = await fetch(MARKDOWN_FILE + '?t=' + Date.now());
+    try {
+      const response = await fetch(filename + '?t=' + Date.now());
 
-        if (!response.ok) {
-          throw new Error('Failed to load');
-        }
+      if (!response.ok) {
+        throw new Error('Failed to load');
+      }
 
-        const markdown = await response.text();
+      const markdown = await response.text();
 
-        if (typeof marked !== 'undefined') {
-          marked.setOptions({ gfm: true, breaks: true });
-          const html = marked.parse(markdown);
-          markdownContainer.innerHTML = html;
-          convertCheckboxes();
-          lastUpdated.textContent = `Last updated: ${new Date().toLocaleString()}`;
-        } else {
-          throw new Error('Marked.js not loaded');
-        }
-      } catch (error) {
-        console.error('Error loading markdown:', error);
-        markdownContainer.innerHTML = `
+      if (typeof marked !== 'undefined') {
+        marked.setOptions({ gfm: true, breaks: true });
+        const html = marked.parse(markdown);
+        container.innerHTML = html;
+        this.convertCheckboxes(container);
+      } else {
+        throw new Error('Marked.js not loaded');
+      }
+    } catch (error) {
+      console.error(`Error loading ${filename}:`, error);
+      container.innerHTML = `
           <div class="text-center py-5">
             <i class="fas fa-exclamation-triangle fa-3x text-danger mb-3"></i>
-            <h4>Failed to load progress log</h4>
-            <p class="text-secondary">Make sure PROGRESS_LOG.md exists in the portfolio folder.</p>
+            <h4>Failed to load content</h4>
+            <p class="text-secondary">Make sure ${filename} exists in the portfolio folder.</p>
           </div>
         `;
-      }
     }
+  }
 
-    function convertCheckboxes() {
-      const listItems = markdownContainer.querySelectorAll('li');
-      listItems.forEach(li => {
-        const text = li.innerHTML;
-        if (text.startsWith('[ ] ')) {
-          li.innerHTML = '<input type="checkbox" disabled> ' + text.substring(4);
-        } else if (text.startsWith('[x] ') || text.startsWith('[X] ')) {
-          li.innerHTML = '<input type="checkbox" checked disabled> ' + text.substring(4);
-        } else if (text.startsWith('[/] ')) {
-          li.innerHTML = '<input type="checkbox" disabled style="opacity: 0.5;"> <em>(In Progress)</em> ' + text.substring(4);
-        }
-      });
-    }
+  convertCheckboxes(container) {
+    const listItems = container.querySelectorAll('li');
+    listItems.forEach(li => {
+      const text = li.innerHTML;
+      if (text.startsWith('[ ] ')) {
+        li.innerHTML = '<input type="checkbox" disabled> ' + text.substring(4);
+      } else if (text.startsWith('[x] ') || text.startsWith('[X] ')) {
+        li.innerHTML = '<input type="checkbox" checked disabled> ' + text.substring(4);
+      } else if (text.startsWith('[/] ')) {
+        li.innerHTML = '<input type="checkbox" disabled style="opacity: 0.5;"> <em>(In Progress)</em> ' + text.substring(4);
+      }
+    });
   }
 }
 
