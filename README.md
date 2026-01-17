@@ -15,7 +15,7 @@ This portfolio is built to demonstrate my improved skills in:
 - `PROGRESS_LOG.md`: A tracked log of my learning milestones (Synced to my learning-programming repo!).
 
 ## 🔗 Live Demo
-*(Insert your live demo link here if deployed, e.g., via GitHub Pages)*
+[*(Insert your live demo link here if deployed, e.g., via GitHub Pages)*](https://chaaruze.github.io/portfolio-v2/)
 
 ## 🛠️ Setup
 1. Clone the repo.
