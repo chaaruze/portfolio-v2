@@ -8,29 +8,30 @@ on:
 jobs:
   fetch-readme:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Portfolio Repo
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch Remote README
-        uses: actions/checkout@v3
-        with:
-          repository: chaaruze/learning-programming
-          token: ${{ secrets.PAT_TOKEN }}
-          path: temp-learning
-
-      - name: Update Local Log
         run: |
-          # Copy the README from the other repo to LEARNING_LOG.md here
-          cp temp-learning/README.md LEARNING_LOG.md
-          rm -rf temp-learning
+          # Use curl with the PAT to fetch the raw file content directly
+          # This avoids complexity with checking out a full second repository
+          curl -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
+               -H "Accept: application/vnd.github.v3.raw" \
+               -o LEARNING_LOG.md \
+               https://api.github.com/repos/chaaruze/learning-programming/readme
 
       - name: Commit and Push Changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add LEARNING_LOG.md
-          # Only commit if there are actual changes
+          
+          # Check if there are changes
           if git diff --staged --quiet; then
             echo "No changes to sync."
           else
