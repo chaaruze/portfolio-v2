@@ -1,47 +1,39 @@
-name: Sync Progress Log to Learning Programming Repo
+name: Fetch Progress from Learning Repo
 
 on:
-  push:
-    paths:
-      - 'PROGRESS_LOG.md'
-  workflow_dispatch:
+  workflow_dispatch:      # Allows manual trigger button
+  schedule:
+    - cron: '0 */6 * * *' # Runs every 6 hours
 
 jobs:
-  sync-readme:
+  fetch-readme:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Portfolio Repo
         uses: actions/checkout@v3
 
-      - name: Read Progress Log
-        id: read_log
-        run: |
-          content=$(cat PROGRESS_LOG.md)
-          # Escape newlines for proper handling in GITHUB_OUTPUT or simply use file operations
-          # We don't need to output to variable if we just use file ops in the next step, 
-          # but we are syncing to a different repo.
-      
-      - name: Checkout Target Repo
+      - name: Fetch Remote README
         uses: actions/checkout@v3
         with:
-          repository: chaaruze/learning-programming 
-          token: ${{ secrets.PAT_TOKEN }} # User needs to set this
-          path: target-repo
+          repository: chaaruze/learning-programming
+          token: ${{ secrets.PAT_TOKEN }}
+          path: temp-learning
 
-      - name: Update README in Target Repo
+      - name: Update Local Log
         run: |
-          cp PROGRESS_LOG.md target-repo/README.md
-          
+          # Copy the README from the other repo to PROGRESS_LOG.md here
+          cp temp-learning/README.md PROGRESS_LOG.md
+          rm -rf temp-learning
+
       - name: Commit and Push Changes
         run: |
-          cd target-repo
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          # Only commit if there are changes
+          git add PROGRESS_LOG.md
+          # Only commit if there are actual changes
           if git diff --staged --quiet; then
-            echo "No changes to commit"
+            echo "No changes to sync."
           else
-            git commit -m "Update README from portfolio-v2 progress log"
+            git commit -m "Sync: Pulled latest update from Learning-Programming README"
             git push
           fi
