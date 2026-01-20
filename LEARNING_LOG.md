@@ -43,7 +43,7 @@ java Filename
 - [x] **Lesson 01**: Hello World
 - [x] **Lesson 02**: Variables
 - [/] **Lesson 03**: Data Types
-- [ ] **Lesson 04**: User Input
+- [/] **Lesson 04**: User Input
 - [ ] **Lesson 05**: Conditionals
 - [ ] **Lesson 06**: Loops
 - [ ] **Lesson 07**: Functions
