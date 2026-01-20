@@ -42,9 +42,9 @@ java Filename
 ### Python Track (Foundations)
 - [x] **Lesson 01**: Hello World
 - [x] **Lesson 02**: Variables
-- [/] **Lesson 03**: Data Types
-- [/] **Lesson 04**: User Input
-- [ ] **Lesson 05**: Conditionals
+- [x] **Lesson 03**: Data Types
+- [x] **Lesson 04**: User Input
+- [/] **Lesson 05**: Conditionals
 - [ ] **Lesson 06**: Loops
 - [ ] **Lesson 07**: Functions
 - [ ] **Lesson 08**: Lists
