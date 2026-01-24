@@ -3,7 +3,10 @@
 Welcome to my project-based learning repository! Refreshing my programming skills with an AI-age curriculum.
 
 **Focus:** Build things, not just solve exercises.  
-**Structure:** 7 tracks × 4-8 projects × 4 exercises each = **148 exercises total**
+**Structure:** 
+- **Theory**: Each topic includes a **comprehensive** `lesson.md` with deep-dives, code examples, and best practices.
+- **Projects**: 37 projects/modules with specific requirements in `README.md`.
+- **Exercises**: 4 hands-on exercises per project in the `exercises/` folder (148 total).
 
 ## 📚 Curriculum Tracks
 
