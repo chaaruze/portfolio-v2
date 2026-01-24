@@ -1,8 +1,9 @@
 # Learning Programming Journey 🚀
 
-Welcome to my project-based learning repository! I'm refreshing my programming skills with an intermediate, AI-age curriculum.
+Welcome to my project-based learning repository! Refreshing my programming skills with an AI-age curriculum.
 
-**Focus:** Build things, not just solve exercises.
+**Focus:** Build things, not just solve exercises.  
+**Structure:** 7 tracks × 4-8 projects × 4 exercises each = **148 exercises total**
 
 ## 📚 Curriculum Tracks
 
