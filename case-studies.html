@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Sanitized technical case studies by John Charles Omagap covering workflow automation and human-in-the-loop data quality.">
+  <meta name="author" content="John Charles Omagap">
+  <meta name="theme-color" content="#0d1117">
+  <title>Case Studies | John Charles Omagap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/website-logo.png">
+</head>
+
+<body data-theme="dark">
+  <header class="header fixed-top">
+    <nav class="navbar navbar-expand-lg py-3">
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-5" href="index.html">John Charles Omagap</a>
+        <a class="btn btn-outline-primary" href="index.html#projects">
+          <i class="fas fa-arrow-left me-2"></i>Back to Portfolio
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="case-study-page">
+    <section class="case-study-hero py-5">
+      <div class="container">
+        <p class="case-study-eyebrow">Selected work</p>
+        <h1 class="display-4 fw-bold mb-4">Sanitized Case Studies</h1>
+        <p class="lead text-secondary mb-0">Evidence-focused accounts of what I configured, reviewed, and learned.
+          Private records, credentials, and third-party information are replaced with aggregate or synthetic examples.</p>
+      </div>
+    </section>
+
+    <section id="student-operations" class="py-5">
+      <div class="container">
+        <article class="case-study-card">
+          <div class="case-study-heading">
+            <div>
+              <p class="case-study-eyebrow">OpenClaw &middot; Python &middot; JavaScript &middot; Discord</p>
+              <h2 class="display-6 fw-bold">Student Operations Automation</h2>
+              <p class="text-secondary">Personal academic prototype &middot; February–June 2026</p>
+            </div>
+            <span class="case-study-status">Sanitized</span>
+          </div>
+
+          <div class="case-metric-grid">
+            <div class="case-metric"><strong>3</strong><span>configured agents</span></div>
+            <div class="case-metric"><strong>12</strong><span>scheduled jobs</span></div>
+            <div class="case-metric"><strong>5,894</strong><span>scheduler records</span></div>
+            <div class="case-metric"><strong>93.7%</strong><span>successful non-skipped runs</span></div>
+          </div>
+
+          <div class="row g-4 mt-2">
+            <div class="col-lg-6">
+              <h3 class="h5">Problem</h3>
+              <p>Google Classroom made it cumbersome to review announcements across multiple subjects. I wanted one
+                central Discord destination for relevant updates, reminders, and personal study notes.</p>
+            </div>
+            <div class="col-lg-6">
+              <h3 class="h5">My contribution</h3>
+              <p>I configured and extended an OpenClaw deployment using separate agent workspaces, reusable
+                instructions and skills, cron scheduling, Discord routing, and AI-assisted Python and JavaScript
+                integrations.</p>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Workflow</h3>
+          <div class="workflow-line" aria-label="Course data to Discord workflow">
+            <span>Accessible course updates</span><i class="fas fa-arrow-right"></i><span>Poll and deduplicate</span>
+            <i class="fas fa-arrow-right"></i><span>Route by purpose</span><i class="fas fa-arrow-right"></i>
+            <span>Designated Discord delivery</span>
+          </div>
+          <div class="workflow-line" aria-label="Caption to study-note workflow">
+            <span>Built-in Meet captions</span><i class="fas fa-arrow-right"></i><span>Local personal capture</span>
+            <i class="fas fa-arrow-right"></i><span>Summary and task extraction</span>
+            <i class="fas fa-arrow-right"></i><span>Study output</span>
+          </div>
+
+          <h3 class="h5 mt-4">Evidence and interpretation</h3>
+          <ul>
+            <li>Historical logs contain 3,254 successful, 2,420 skipped, and 220 failed scheduler records.</li>
+            <li>These figures measure scheduled executions—not unique announcements, meetings, or delivered messages.</li>
+            <li>The practical benefit was reducing repeated navigation across individual Classroom subjects; time saved was not measured.</li>
+          </ul>
+
+          <div class="case-study-notice mt-4">
+            <h3 class="h5"><i class="fas fa-user-shield me-2"></i>Privacy and consent boundary</h3>
+            <p class="mb-0">The caption component used Google Meet's built-in captions during meetings I attended and
+              was created for personal note-taking. Participants were not asked to approve automated capture, so no
+              real transcript, class content, participant information, server data, or configuration is published.
+              Every public example will use fictional inputs, and the workflow should not be redeployed for shared
+              content without organizational permission and informed participants.</p>
+          </div>
+
+          <h3 class="h5 mt-4">Limitations and next iteration</h3>
+          <ul class="mb-0">
+            <li>No complete automated test suite or CI pipeline was present in the recovered prototype.</li>
+            <li>The caption-processing component was a short pilot, while other scheduled workflows ran longer.</li>
+            <li>A public-safe rebuild should use synthetic fixtures, least-privilege access, retries, deduplication tests, and explicit retention controls.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="ticktick" class="py-5">
+      <div class="container">
+        <article class="case-study-card">
+          <div class="case-study-heading">
+            <div>
+              <p class="case-study-eyebrow">Human-in-the-loop AI &middot; Data quality &middot; Approval gates</p>
+              <h2 class="display-6 fw-bold">Safely Auditing 10,700 Task Records</h2>
+              <p class="text-secondary">Personal data-quality workflow &middot; Synthetic public presentation</p>
+            </div>
+            <span class="case-study-status">Approved</span>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <h3 class="h5">Problem</h3>
+              <p>Reviewing a large personal task archive manually was impractical, but allowing an agent to reorganize
+                it without safeguards risked irreversible loss of history and context.</p>
+            </div>
+            <div class="col-lg-6">
+              <h3 class="h5">My responsibility</h3>
+              <p>I defined duplicate criteria, preferred false negatives over aggressive merging, prohibited
+                destructive changes without approval, challenged an incorrect completion claim, and required a
+                validated backup.</p>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Safety process</h3>
+          <ol class="case-step-list">
+            <li><strong>Define boundaries.</strong> Identify protected fields, acceptable matches, and success criteria.</li>
+            <li><strong>Analyze without mutation.</strong> Produce candidates and reports before changing source data.</li>
+            <li><strong>Verify claims.</strong> Compare the reported result with the actual destination state.</li>
+            <li><strong>Build a recoverable copy.</strong> Require a backup before any irreversible operation.</li>
+            <li><strong>Validate structure.</strong> Confirm 10,700 parsed rows and identifier integrity.</li>
+            <li><strong>Gate destructive actions.</strong> Keep merge, archive, completion, and deletion behind human approval.</li>
+          </ol>
+
+          <div class="case-study-notice mt-4">
+            <h3 class="h5"><i class="fas fa-lightbulb me-2"></i>Result and lesson</h3>
+            <p>Produced a structurally validated dataset covering 10,700 task records before considering a destructive
+              operation.</p>
+            <p class="mb-0"><strong>An agent's completion message is not evidence that the intended outcome occurred.</strong></p>
+          </div>
+
+          <h3 class="h5 mt-4">Skills demonstrated</h3>
+          <p class="mb-0">Human-in-the-loop automation, structured requirements, data-quality validation, failure
+            detection, backup-first planning, and approval controls. Public examples use fictional tasks and a small
+            synthetic dataset; no real titles, notes, schedules, URLs, IDs, or account data are included.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-section text-center py-4">
+    <div class="container">
+      <p class="footer-text mb-0">&copy; 2026 John Charles Omagap. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -651,3 +651,132 @@ a:hover {
     word-wrap: break-word;
   }
 }
+
+/* === Evidence-focused project and case-study details === */
+.project-kicker,
+.case-study-eyebrow {
+  display: block;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.case-study-page {
+  min-height: 100vh;
+  padding-top: 5rem;
+}
+
+.case-study-hero {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent);
+  border-bottom: 1px solid var(--border);
+}
+
+.case-study-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.case-study-heading {
+  align-items: flex-start;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.case-study-status {
+  background: color-mix(in srgb, var(--success) 15%, transparent);
+  border: 1px solid var(--success);
+  border-radius: 999px;
+  color: var(--success);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.4rem 0.75rem;
+  text-transform: uppercase;
+}
+
+.case-metric-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 1.5rem 0;
+}
+
+.case-metric {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.case-metric strong,
+.case-metric span {
+  display: block;
+}
+
+.case-metric strong {
+  color: var(--accent);
+  font-size: 1.65rem;
+}
+
+.case-metric span {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  margin-top: 0.25rem;
+}
+
+.workflow-line {
+  align-items: center;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding: 1rem;
+}
+
+.workflow-line i {
+  color: var(--accent);
+}
+
+.case-study-notice {
+  background: color-mix(in srgb, var(--accent) 7%, var(--bg-primary));
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+
+.case-step-list li {
+  margin-bottom: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .case-study-heading {
+    display: block;
+  }
+
+  .case-study-status {
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+
+  .case-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .workflow-line {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .workflow-line i {
+    transform: rotate(90deg);
+  }
+}

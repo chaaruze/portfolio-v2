@@ -27,7 +27,6 @@ class PortfolioManager {
     this.setupAOS();
     this.setupMatrixRain();
     this.setupStatCounters();
-    this.setupProgressLog();
   }
 
   setupMatrixRain() {
@@ -153,8 +152,8 @@ class PortfolioManager {
     // Terminal commands to type
     const commands = [
       { id: 'terminal-command-1', text: 'cd ~/portfolio', delay: 0 },
-      { id: 'terminal-command-2', text: 'npm run build', delay: 1200, showLine: 'terminal-line-2' },
-      { id: 'terminal-command-3', text: './start-server.sh', delay: 2400, showLine: 'terminal-line-3' }
+      { id: 'terminal-command-2', text: 'verify --projects --credentials', delay: 150, showLine: 'terminal-line-2' },
+      { id: 'terminal-command-3', text: './open-portfolio', delay: 380, showLine: 'terminal-line-3' }
     ];
 
     const typeCommand = (element, text, callback) => {
@@ -167,7 +166,7 @@ class PortfolioManager {
           clearInterval(interval);
           if (callback) callback();
         }
-      }, 50);
+      }, 20);
     };
 
     // Start terminal animation
@@ -186,7 +185,7 @@ class PortfolioManager {
               outputLine.style.display = 'block';
               output.textContent = '✓ Portfolio ready! Launching...';
               output.style.color = '#00ff41';
-            }, 500);
+            }, 100);
           }
         });
       }, cmd.delay);
@@ -198,8 +197,8 @@ class PortfolioManager {
       setTimeout(() => {
         loadingScreen.style.display = "none";
         mainContent.classList.remove("d-none");
-      }, 500);
-    }, 4500);
+      }, 250);
+    }, 1000);
   }
 
   setupScrollProgress() {
@@ -259,7 +258,7 @@ class PortfolioManager {
     setTimeout(() => {
       if (typeof Typed !== 'undefined') {
         new Typed('#hero-typing-text', {
-          strings: ['Web Developer', 'College Student', 'Lifelong Learner', 'Future Cybersecurity Specialist'],
+          strings: ['BS Computer Science Student', 'Web & Automation Builder', 'Technical Problem Solver', 'Open to Part-Time Remote Work'],
           typeSpeed: 100,
           backSpeed: 50,
           backDelay: 2000,
@@ -267,7 +266,7 @@ class PortfolioManager {
           cursorChar: '|'
         });
       }
-    }, 4500);
+    }, 1250);
   }
 
   setupEmailJS() {

@@ -1,26 +1,24 @@
-# 🎨 Portfolio V2
+# John Charles Omagap — Portfolio
 
-Welcome to my personal portfolio! This project showcases my journey as a web developer, featuring my projects, skills, and progress.
+Professional portfolio for a BS Computer Science student building practical web, automation, and technical-support projects.
 
-## 🚀 About the Project
-This portfolio is built to demonstrate my improved skills in:
-- **HTML5 & CSS3**: With modern animations and responsive layouts.
-- **JavaScript**: Interactive elements like Matrix rain and stats counters.
-- **Design**: A "Cyber-Yellow" aesthetic with a terminal vibe.
+## What this portfolio includes
 
-## 📂 Project Structure
-- `index.html`: Main entry point structure.
-- `styles.css`: Custom styling with CSS variables and flex/grid layouts.
-- `script.js`: Dynamic behaviors using vanilla JavaScript.
-- `PROGRESS_LOG.md`: A tracked log of my learning milestones (Synced to my learning-programming repo!).
+- Evidence-based project descriptions with honest maintenance status.
+- Sanitized case studies for a private student-operations automation and a 10,700-record human-in-the-loop data audit.
+- Verified EF SET C1 Advanced English credential.
+- Responsive dark/light interface built with HTML, CSS, and vanilla JavaScript.
 
-## 🔗 Live Demo
-[*https://chaaruze.github.io/portfolio-v2*](https://chaaruze.github.io/portfolio-v2/)
+## Privacy approach
 
-## 🛠️ Setup
-1. Clone the repo.
-2. Open `index.html` in your browser.
-3. Enjoy!
+The public case studies use aggregate metrics and synthetic examples. They do not publish class transcripts, course announcements, task content, account identifiers, private server data, credentials, or raw automation configuration.
 
----
-*Made with ❤️ and Google Antigravity*
+## Local preview
+
+Open `index.html` directly, or serve the directory with any static HTTP server.
+
+## Live site
+
+[chaaruze.github.io/portfolio-v2](https://chaaruze.github.io/portfolio-v2/)
+
+Built and maintained by John Charles Omagap with transparent AI-assisted development and human review.
