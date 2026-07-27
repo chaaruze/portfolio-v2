@@ -1,721 +1,332 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="John Charles Omagap is a BS Computer Science student building practical web, automation, and technical-support projects for remote teams.">
-  <meta name="keywords" content="John Charles Omagap, computer science student, web development, workflow automation, technical support, Philippines">
+    content="Portfolio of John Charles Omagap, a BS Computer Science student building practical software, automation, data-quality, and privacy-aware technical projects.">
+  <meta name="keywords"
+    content="John Charles Omagap, computer science student, software, workflow automation, data quality, cybersecurity, Philippines">
   <meta name="author" content="John Charles Omagap">
-  <meta name="theme-color" content="#0d1117">
-
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="John Charles Omagap | Portfolio">
-  <meta property="og:description" content="Web, automation, and technical problem-solving projects from a BS Computer Science student in the Philippines.">
+  <meta name="theme-color" content="#f6f8fb">
+  <meta property="og:title" content="John Charles Omagap | Computer Science Portfolio">
+  <meta property="og:description"
+    content="Practical software, automation, data-quality, and security-minded project work.">
   <meta property="og:type" content="website">
-
-  <title>John Charles Omagap | Portfolio</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- AOS Animation Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <!-- Google Fonts - JetBrains Mono for terminal aesthetic -->
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+  <meta property="og:url" content="https://chaaruze.github.io/portfolio-v2/">
+  <link rel="canonical" href="https://chaaruze.github.io/portfolio-v2/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css?v=20260727-1">
-
-  <link rel="icon" type="image/png" href="images/website-logo.png">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="styles.css?v=20260727-2">
+  <title>John Charles Omagap | Computer Science Portfolio</title>
 </head>
 
-<body data-theme="dark">
-  <!-- Matrix Rain Background -->
-  <canvas id="matrix-rain"></canvas>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <!-- Scroll Progress -->
-  <div id="scroll-progress" class="scroll-progress"></div>
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="John Charles Omagap, home">
+        <span class="brand-mark" aria-hidden="true">JC</span>
+        <span class="brand-name">John Charles Omagap</span>
+      </a>
 
-  <!-- Loading Screen -->
-  <div id="loading-screen" class="loading-screen">
-    <div class="loading-content">
-      <!-- Terminal Loading Animation -->
-      <div class="terminal-container">
-        <div class="terminal-header">
-          <div class="terminal-buttons">
-            <span class="terminal-btn close"></span>
-            <span class="terminal-btn minimize"></span>
-            <span class="terminal-btn maximize"></span>
-          </div>
-          <div class="terminal-title">jc@portfolio:~</div>
-        </div>
-        <div class="terminal-body">
-          <div class="terminal-line">
-            <span class="terminal-prompt">$</span>
-            <span id="terminal-command-1" class="terminal-text"></span>
-          </div>
-          <div class="terminal-line" id="terminal-line-2" style="display: none;">
-            <span class="terminal-prompt">$</span>
-            <span id="terminal-command-2" class="terminal-text"></span>
-          </div>
-          <div class="terminal-line" id="terminal-line-3" style="display: none;">
-            <span class="terminal-prompt">$</span>
-            <span id="terminal-command-3" class="terminal-text"></span>
-          </div>
-          <div class="terminal-line" id="terminal-line-4" style="display: none;">
-            <span class="terminal-output" id="terminal-output"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
+        aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
 
-  <!-- Main Content -->
-  <div id="main-content" class="d-none">
-    <!-- Header -->
-    <header class="header fixed-top">
-      <nav class="navbar navbar-expand-lg py-3">
-        <div class="container">
-          <div class="navbar-brand fw-bold fs-5">John Charles Omagap</div>
-
-          <div class="d-flex align-items-center">
-            <button id="theme-toggle" class="theme-toggle btn btn-outline-secondary me-3 p-2" aria-label="Toggle theme">
-              <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5" />
-                <path
-                  d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-              </svg>
-              <svg class="theme-icon moon-icon d-none" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-              </svg>
-            </button>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
-
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#about">About</a></li>
-              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#skills">Skills</a></li>
-              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#projects">Projects</a></li>
-              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#certificates">Certificates</a>
-              </li>
-              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="case-studies.html">Case Studies</a></li>
-              <li class="nav-item"><a class="nav-link px-3 py-2 rounded fw-medium" href="#contact">Contact</a></li>
-            </ul>
-          </div>
-        </div>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="https://github.com/chaaruze" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
-    </header>
-
-    <main>
-      <!-- Hero Section -->
-      <section id="hero" class="hero-section">
-        <div class="container">
-          <div class="row align-items-center min-vh-100 g-3">
-            <div class="col-lg-7 order-2 order-lg-1 text-center text-lg-start" data-aos="fade-right">
-              <div class="hero-content">
-                <h1 class="hero-title display-3 fw-bold mb-3">John Charles Omagap</h1>
-                <p class="hero-subtitle fs-4 mb-4">
-                  <span id="hero-typing-text"></span>
-                </p>
-                <a href="#projects" class="btn btn-primary btn-lg px-4 py-3 fw-semibold">Check My Work</a>
-              </div>
-            </div>
-            <div class="col-lg-5 order-1 order-lg-2 text-center mb-0" data-aos="fade-left">
-              <div class="profile-image-container">
-                <img src="images/image-profile.png" alt="John Charles Omagap" class="profile-image img-fluid">
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- About Section -->
-      <section id="about" class="about-section py-5" data-aos="fade-up">
-        <div class="container position-relative">
-          <div class="about-gradient-border">
-            <div class="about-content-wrapper">
-              <h2 class="section-title display-4 fw-bold mb-5 text-center">About Me</h2>
-
-              <!-- Profile & Bio Row -->
-              <div class="row align-items-center mb-5">
-                <div class="col-lg-4 text-center mb-4 mb-lg-0" data-aos="fade-right">
-                  <div class="about-profile-container">
-                    <div class="about-profile-border">
-                      <img src="images/image-profile-1.jpg" alt="John Charles Omagap" class="about-profile-img">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-8" data-aos="fade-left">
-                  <p class="section-text fs-5 lh-lg text-justify">I'm John Charles Omagap, a third-year BS Computer
-                    Science student at Pamantasang Lungsod ng Muntinlupa. I build practical web tools and personal
-                    automations, troubleshoot technical problems, and document what I learn. I also serve as Business
-                    Manager in our course student council, where I support coordination and administrative work. I use
-                    AI-assisted development tools transparently, verify their output, and take responsibility for the
-                    systems and decisions I present. I'm seeking part-time remote opportunities in technical support,
-                    digital operations, customer support, and entry-level technology roles.</p>
-                </div>
-              </div>
-
-              <!-- Highlight Cards -->
-              <div class="row g-3 mb-3">
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="highlight-card">
-                    <div class="highlight-icon">
-                      <i class="fas fa-code"></i>
-                    </div>
-                    <h4 class="highlight-title">What I Build</h4>
-                    <p class="highlight-text">Responsive websites, workflow automations, and practical integrations</p>
-                  </div>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="highlight-card">
-                    <div class="highlight-icon">
-                      <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h4 class="highlight-title">How I Work</h4>
-                    <p class="highlight-text">Structured requirements, verification, documentation, and human review</p>
-                  </div>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="highlight-card">
-                    <div class="highlight-icon">
-                      <i class="fas fa-headset"></i>
-                    </div>
-                    <h4 class="highlight-title">Current Focus</h4>
-                    <p class="highlight-text">Remote support, digital operations, and entry-level technical work</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Stats Counters -->
-              <div class="row g-4 mb-5">
-                <div class="col-4" data-aos="fade-up" data-aos-delay="100">
-                  <div class="stat-card">
-                    <div class="stat-number" data-target="3">0</div>
-                    <div class="stat-label">Configured Agents</div>
-                  </div>
-                </div>
-                <div class="col-4" data-aos="fade-up" data-aos-delay="200">
-                  <div class="stat-card">
-                    <div class="stat-number" data-target="5">0</div>
-                    <div class="stat-label">Selected Projects</div>
-                  </div>
-                </div>
-                <div class="col-4" data-aos="fade-up" data-aos-delay="300">
-                  <div class="stat-card">
-                    <div class="stat-number" data-target="12">0</div>
-                    <div class="stat-label">Scheduled Workflows</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Journey Timeline -->
-              <div class="timeline-container" data-aos="fade-up">
-                <h4 class="text-center mb-4 fw-semibold">My Journey</h4>
-                <div class="timeline">
-                  <div class="timeline-item active">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                      <h5>BS Computer Science</h5>
-                      <p>Third-year student</p>
-                    </div>
-                  </div>
-                  <div class="timeline-item active">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                      <h5>Student Leadership</h5>
-                      <p>Course council Business Manager</p>
-                    </div>
-                  </div>
-                  <div class="timeline-item future">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                      <h5>Remote Contributor</h5>
-                      <p>Support, operations, and technology</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills Section -->
-      <section id="skills" class="py-5" data-aos="fade-up">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-10 text-center">
-              <h2 class="section-title display-4 fw-bold mb-5">Skills & Tools</h2>
-              <div class="row g-4 justify-content-center">
-                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-html5"></i></div>
-                    <h3 class="skill-name">HTML & CSS</h3>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-js"></i></div>
-                    <h3 class="skill-name">JavaScript</h3>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-python"></i></div>
-                    <h3 class="skill-name">Python</h3>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
-                  <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-                    <h3 class="skill-name">Git & GitHub</h3>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="500">
-                  <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-database"></i></div>
-                    <h3 class="skill-name">SQL Foundations</h3>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="600">
-                  <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
-                    <h3 class="skill-name">AI Workflows</h3>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="700">
-                  <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
-                    <h3 class="skill-name">OpenClaw & Codex</h3>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="800">
-                  <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-discord"></i></div>
-                    <h3 class="skill-name">Discord Automation</h3>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="900">
-                  <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-google"></i></div>
-                    <h3 class="skill-name">Google Workspace</h3>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="1000">
-                  <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-file-alt"></i></div>
-                    <h3 class="skill-name">Documentation</h3>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="1100">
-                  <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-tools"></i></div>
-                    <h3 class="skill-name">Troubleshooting</h3>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="1200">
-                  <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-keyboard"></i></div>
-                    <h3 class="skill-name">80+ WPM Typing</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects Section -->
-      <section id="projects" class="py-5" data-aos="fade-up">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-10">
-              <h2 class="section-title display-4 fw-bold text-center mb-5">Projects</h2>
-              <div class="row g-4">
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                  <div class="project-card card h-100 border-0 shadow-sm">
-                    <div class="project-image">
-                      <img src="images/stica-mockup.png" alt="STICA Clinic System" class="img-fluid">
-                    </div>
-                    <div class="card-body p-4">
-                      <span class="project-kicker">Team leadership &middot; Capstone prototype</span>
-                      <h3 class="project-title card-title h4 fw-semibold mb-3">STICA Clinic System</h3>
-                      <p class="project-description card-text mb-4">Led a five-person senior-high capstone team and
-                        served as lead programmer for a clinic-record prototype built with HTML, CSS, JavaScript, PHP,
-                        and SQL. The repository is preserved as an unmaintained prototype.</p>
-                      <div class="d-flex gap-2 flex-wrap">
-                        <a href="https://github.com/chaaruze/stica-clinic" class="btn btn-outline-secondary">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" class="me-1">
-                            <path
-                              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                          </svg>
-                          GitHub
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                  <div class="project-card card h-100 border-0 shadow-sm">
-                    <div class="project-image bg-gradient">
-                      <i class="fas fa-code project-icon"></i>
-                    </div>
-                    <div class="card-body p-4">
-                      <span class="project-kicker">Independent web project</span>
-                      <h3 class="project-title card-title h4 fw-semibold mb-3">Professional Portfolio</h3>
-                      <p class="project-description card-text mb-4">A responsive HTML, CSS, and JavaScript portfolio
-                        with dark/light themes, accessible navigation, project evidence, and verified credentials.</p>
-                      <div class="d-flex gap-2 flex-wrap">
-                        <span class="btn btn-primary">
-                          <i class="fas fa-code me-1"></i>
-                          Current Project
-                        </span>
-                        <a href="https://github.com/chaaruze/portfolio-v2" class="btn btn-outline-secondary">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" class="me-1">
-                            <path
-                              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                          </svg>
-                          GitHub
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Student Operations Automation -->
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                  <div class="project-card card h-100 border-0 shadow-sm">
-                    <div class="project-image bg-gradient">
-                      <i class="fas fa-project-diagram project-icon"></i>
-                    </div>
-                    <div class="card-body p-4">
-                      <span class="project-kicker">OpenClaw &middot; Python &middot; JavaScript &middot; Discord</span>
-                      <h3 class="project-title card-title h4 fw-semibold mb-3">Student Operations Automation</h3>
-                      <p class="project-description card-text mb-4">Configured and extended a three-agent
-                        academic workflow with isolated roles, reusable instructions, Discord routing, and 12 scheduled
-                        jobs. All public examples are synthetic to protect class and account data.</p>
-                      <div class="d-flex gap-2 flex-wrap">
-                        <a href="case-studies.html#student-operations" class="btn btn-outline-primary">
-                          <i class="fas fa-file-alt me-1"></i>
-                          Sanitized Case Study
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- SillyTavern Chat Folders Project -->
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                  <div class="project-card card h-100 border-0 shadow-sm">
-                    <div class="project-image">
-                      <img src="images/st-chat-folders.png" alt="Too Many Chats folder interface" class="img-fluid">
-                    </div>
-                    <div class="card-body p-4">
-                      <span class="project-kicker">Independent AI-assisted prototype &middot; Archived</span>
-                      <h3 class="project-title card-title h4 fw-semibold mb-3">Too Many Chats - SillyTavern</h3>
-                      <p class="project-description card-text mb-4">Explored a missing folder-based organization
-                        feature for users managing many SillyTavern chats. The prototype is public for inspection but
-                        archived and no longer actively maintained.</p>
-                      <div class="d-flex gap-2 flex-wrap">
-                        <a href="https://github.com/chaaruze/st-chat-folders" class="btn btn-outline-secondary">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" class="me-1">
-                            <path
-                              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                          </svg>
-                          GitHub
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- TickTick data-quality case study -->
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
-                  <div class="project-card card h-100 border-0 shadow-sm">
-                    <div class="project-image bg-gradient">
-                      <i class="fas fa-check-double project-icon"></i>
-                    </div>
-                    <div class="card-body p-4">
-                      <span class="project-kicker">Human-in-the-loop AI &middot; Data quality</span>
-                      <h3 class="project-title card-title h4 fw-semibold mb-3">10,700-Record Task Audit</h3>
-                      <p class="project-description card-text mb-4">Directed a safety-first review of 10,700 task
-                        records using read-only analysis, strict parsing, backup requirements, identifier validation,
-                        and approval gates before any irreversible operation.</p>
-                      <div class="d-flex gap-2 flex-wrap">
-                        <a href="case-studies.html#ticktick" class="btn btn-outline-primary">
-                          <i class="fas fa-file-alt me-1"></i>
-                          Sanitized Case Study
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Certificates Section -->
-      <section id="certificates" class="py-5 bg-gradient-subtle" data-aos="fade-up">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-10">
-              <h2 class="section-title display-4 fw-bold text-center mb-5">Certificates</h2>
-
-              <div class="row g-4">
-                <div class="col-md-7" data-aos="zoom-in">
-                  <div class="certificate-card h-100">
-                    <div class="certificate-image mb-4">
-                      <img src="images/efset-c1-certificate.png" alt="EF SET English Certificate showing C1 Advanced"
-                        class="img-fluid rounded">
-                    </div>
-                    <h3 class="h4 fw-semibold">EF SET English Certificate</h3>
-                    <p class="text-secondary">66/100 &middot; CEFR C1 Advanced &middot; Awarded August 1, 2025</p>
-                    <p class="small text-secondary">Reading: C2 &middot; Listening: C2 &middot; Writing: B2 &middot; Speaking: B2</p>
-                    <a href="https://cert.efset.org/en/ox3wuJ" class="btn btn-outline-primary" target="_blank"
-                      rel="noopener noreferrer">Verify Certificate</a>
-                  </div>
-                </div>
-                <div class="col-md-5" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="certificate-card h-100">
-                    <div class="certificate-image mb-4">
-                      <img src="images/certificate-1.jpg" alt="Technology seminar participation certificate"
-                        class="img-fluid rounded">
-                    </div>
-                    <h3 class="h4 fw-semibold">Technology Seminar</h3>
-                    <p class="text-secondary mb-0">Participation certificate retained as supporting professional-development evidence.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Progress Log Section -->
-      <section id="progress" class="d-none" aria-hidden="true">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-10">
-              <h2 class="section-title display-4 fw-bold text-center mb-5">Progress Log</h2>
-
-              <!-- Clean Card Progress Container -->
-              <div class="progress-card mb-4" data-aos="fade-up">
-                <div class="progress-card-header">
-                  <i class="fas fa-terminal me-2"></i>~/progress/PROGRESS_LOG.md (Portfolio Updates)
-                </div>
-                <div class="progress-card-body" id="progress-markdown-content">
-                  <div class="text-center py-4">
-                    <i class="fas fa-spinner fa-spin fa-2x mb-3"></i>
-                    <p>Loading...</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Learning Log Container -->
-              <div class="progress-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="progress-card-header">
-                  <i class="fas fa-book-reader me-2"></i>~/learning/LEARNING_LOG.md (Synced from External Repo)
-                </div>
-                <div class="progress-card-body" id="learning-markdown-content">
-                  <div class="text-center py-4">
-                    <i class="fas fa-spinner fa-spin fa-2x mb-3"></i>
-                    <p>Loading...</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="d-flex justify-content-center gap-3 mt-4">
-                <button id="progress-reload" class="btn btn-outline-primary">
-                  <i class="fas fa-sync-alt me-2"></i>Reload
-                </button>
-              </div>
-              <p id="progress-last-updated" class="text-center mt-3 small text-secondary"></p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Cybersecurity Journey Section -->
-      <section id="security" class="d-none" aria-hidden="true">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-10">
-              <h2 class="section-title display-4 fw-bold text-center mb-5">Cybersecurity Journey</h2>
-              <p class="text-center text-secondary mb-5">Building my path to becoming a Blue Team Specialist</p>
-
-              <div class="row g-4">
-                <!-- CTF Writeups -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                  <div class="coming-soon-card">
-                    <i class="fas fa-flag"></i>
-                    <h5>CTF Writeups</h5>
-                    <p>Coming soon...</p>
-                  </div>
-                </div>
-
-                <!-- Lab Environment -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                  <div class="coming-soon-card">
-                    <i class="fas fa-server"></i>
-                    <h5>Home Lab</h5>
-                    <p>Coming soon...</p>
-                  </div>
-                </div>
-
-                <!-- Security Tools -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                  <div class="coming-soon-card">
-                    <i class="fas fa-tools"></i>
-                    <h5>Security Tools</h5>
-                    <p>Coming soon...</p>
-                  </div>
-                </div>
-
-                <!-- Certifications -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-                  <div class="coming-soon-card">
-                    <i class="fas fa-certificate"></i>
-                    <h5>Certifications</h5>
-                    <p>Coming soon...</p>
-                  </div>
-                </div>
-
-                <!-- TryHackMe/HTB -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
-                  <div class="coming-soon-card">
-                    <i class="fas fa-skull-crossbones"></i>
-                    <h5>TryHackMe / HTB</h5>
-                    <p>Coming soon...</p>
-                  </div>
-                </div>
-
-                <!-- Security Blog -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
-                  <div class="coming-soon-card">
-                    <i class="fas fa-blog"></i>
-                    <h5>Security Blog</h5>
-                    <p>Coming soon...</p>
-                  </div>
-                </div>
-
-                <!-- GitHub Projects -->
-                <div class="col-12" data-aos="fade-up" data-aos-delay="700">
-                  <div class="coming-soon-card">
-                    <i class="fab fa-github"></i>
-                    <h5>Security Projects</h5>
-                    <p>Open-source security tools and scripts - Coming soon...</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section id="contact" class="py-5" data-aos="fade-up">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <h2 class="section-title display-4 fw-bold text-center mb-5">Contact</h2>
-
-              <!-- EmailJS Contact Form -->
-              <form id="contact-form" class="mb-5">
-                <div class="mb-3">
-                  <input type="text" name="from_name" placeholder="Your Name" required
-                    class="form-control form-control-lg">
-                </div>
-                <div class="mb-3">
-                  <input type="email" name="from_email" placeholder="Your Email Address" required
-                    class="form-control form-control-lg">
-                </div>
-                <div class="mb-3">
-                  <textarea name="message" placeholder="Your Message" rows="5" required
-                    class="form-control form-control-lg"></textarea>
-                </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary btn-lg px-5 py-3 fw-semibold" id="submit-btn">
-                    <span class="btn-text">Send Message</span>
-                    <div class="btn-spinner d-none">
-                      <div class="spinner-border spinner-border-sm me-2"></div>Sending...
-                    </div>
-                  </button>
-                </div>
-              </form>
-
-              <div class="text-center">
-                <p class="fs-5 mb-4">Or email me directly at <a href="mailto:0charlesomagap@gmail.com"
-                    class="text-decoration-none">0charlesomagap@gmail.com</a></p>
-                <div class="d-flex justify-content-center gap-3">
-                  <a href="https://www.linkedin.com/in/john-charles-omagap-670958306/" class="social-link p-3 rounded-circle"
-                    aria-label="LinkedIn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                      <rect x="2" y="9" width="4" height="12" />
-                      <circle cx="4" cy="4" r="2" />
-                    </svg>
-                  </a>
-                  <a href="https://github.com/chaaruze" class="social-link p-3 rounded-circle" aria-label="GitHub">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer-section text-center py-4">
-      <div class="container">
-        <p class="footer-text mb-0">&copy; 2026 John Charles Omagap. All rights reserved.</p>
-      </div>
-    </footer>
-  </div>
-
-  <!-- Toast Notification -->
-  <div id="toast" class="toast-notification position-fixed top-0 end-0 m-3 d-none">
-    <div class="toast-content bg-success text-white p-3 rounded shadow">
-      <div class="d-flex align-items-start">
-        <div class="toast-icon me-2">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="20,6 9,17 4,12" />
-          </svg>
-        </div>
-        <div class="toast-text">
-          <div class="toast-title fw-bold"></div>
-          <div class="toast-description"></div>
-        </div>
-      </div>
     </div>
-  </div>
+  </header>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-  <script src="script.js?v=20260727-1"></script>
+  <main id="main-content">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">BS Computer Science · Bacoor, Cavite</p>
+          <h1>John Charles<br>Omagap</h1>
+          <p class="hero-lead">I build practical software, automation, and reliable digital workflows.</p>
+          <p class="hero-summary">My current foundation spans web development, AI-assisted workflow design,
+            technical troubleshooting, and data-quality review. I am developing toward software, IT operations, and
+            cybersecurity-focused work with an emphasis on careful verification and responsible use of technology.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work">View selected work</a>
+            <a class="button button-secondary" href="mailto:0charlesomagap@gmail.com">Start a conversation</a>
+          </div>
+          <ul class="hero-proof" aria-label="Professional highlights">
+            <li><strong>EF SET C1</strong><span>Advanced English</span></li>
+            <li><strong>Third year</strong><span>BS Computer Science</span></li>
+            <li><strong>Open to</strong><span>Part-time remote work</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-portrait reveal">
+          <div class="portrait-panel">
+            <div class="portrait-grid" aria-hidden="true"></div>
+            <img src="images/image-profile.png" alt="John Charles Omagap" width="499" height="500">
+            <div class="portrait-caption">
+              <span>Current direction</span>
+              <strong>Software · Automation · Security foundations</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="signal-strip" aria-label="Selected evidence">
+      <div class="container signal-grid">
+        <div><strong>3</strong><span>configured automation agents</span></div>
+        <div><strong>12</strong><span>scheduled workflows</span></div>
+        <div><strong>10,700</strong><span>records structurally validated</span></div>
+        <div><strong>5-person</strong><span>capstone team led</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Selected work</p>
+            <h2>Projects with context, evidence, and honest status.</h2>
+          </div>
+          <p>I focus on the problem, my contribution, and what can be verified. Archived or private work is labeled
+            clearly instead of being presented as production software.</p>
+        </div>
+
+        <article class="featured-project reveal">
+          <div class="browser-mockup">
+            <div class="browser-bar" aria-hidden="true">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <div class="browser-address">SillyTavern · Chat History</div>
+            </div>
+            <a href="images/sillytavern-too-many-chats-sanitized.png" target="_blank" rel="noopener noreferrer"
+              aria-label="Open the full Too Many Chats project screenshot">
+              <img src="images/sillytavern-too-many-chats-sanitized.webp"
+                alt="Too Many Chats extension organizing SillyTavern chat history into colored folders" width="1846"
+                height="852" loading="lazy" decoding="async">
+            </a>
+          </div>
+
+          <div class="featured-project-copy">
+            <div class="tag-row">
+              <span class="tag">Independent extension</span>
+              <span class="tag tag-muted">Archived</span>
+            </div>
+            <p class="project-overline">JavaScript · CSS · AI-assisted development</p>
+            <h3>Too Many Chats for SillyTavern</h3>
+            <p>Designed a folder-based organization layer for people managing large SillyTavern chat histories. The
+              extension added per-character folders, collapsible groups, contextual move actions, persistent state,
+              and a mobile-friendly interface.</p>
+            <ul class="check-list">
+              <li>Started from a real organization problem in my own workflow.</li>
+              <li>Shared publicly and refined through community feedback.</li>
+              <li>Archived transparently when continued maintenance was no longer sustainable.</li>
+            </ul>
+            <p class="project-disclosure">Screenshot privacy note: all visible chat names and content are synthetic.</p>
+            <div class="project-links">
+              <a class="text-link" href="https://github.com/chaaruze/SillyTavern-Too-Many-Chats" target="_blank"
+                rel="noopener noreferrer">View source and archive notice <span aria-hidden="true">↗</span></a>
+              <a class="text-link" href="https://www.reddit.com/r/SillyTavernAI/comments/1qh6due/extension_tired_of_organizing_your_chats_too_many/"
+                target="_blank" rel="noopener noreferrer">Read the community launch <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div class="project-number">01</div>
+            <div class="tag-row"><span class="tag">Sanitized case study</span></div>
+            <h3>Student Operations Automation</h3>
+            <p>Configured three isolated agents, reusable instructions, Discord routing, and 12 scheduled workflows to
+              consolidate course updates and personal study outputs without publishing private classroom data.</p>
+            <dl class="project-facts">
+              <div><dt>Role</dt><dd>Workflow designer / builder</dd></div>
+              <div><dt>Focus</dt><dd>Automation, routing, privacy boundaries</dd></div>
+            </dl>
+            <a class="text-link" href="case-studies.html#student-operations">Read case study <span
+                aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-number">02</div>
+            <div class="tag-row"><span class="tag">Human-in-the-loop review</span></div>
+            <h3>10,700-Record Safety-First Audit</h3>
+            <p>Defined duplicate rules, required read-only analysis and backup evidence, challenged an incorrect agent
+              completion claim, and kept destructive actions behind explicit human approval.</p>
+            <dl class="project-facts">
+              <div><dt>Role</dt><dd>Requirements owner / reviewer</dd></div>
+              <div><dt>Focus</dt><dd>Data quality, recovery, approval controls</dd></div>
+            </dl>
+            <a class="text-link" href="case-studies.html#ticktick">Read case study <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-number">03</div>
+            <div class="tag-row"><span class="tag">Capstone prototype</span><span class="tag tag-muted">Maintenance-only</span></div>
+            <h3>STICA Clinic System</h3>
+            <p>Led a five-person senior-high capstone team and served as lead programmer for a clinic-record prototype
+              built with HTML, CSS, JavaScript, PHP, and SQL.</p>
+            <dl class="project-facts">
+              <div><dt>Role</dt><dd>Team lead / lead programmer</dd></div>
+              <div><dt>Status</dt><dd>Academic prototype; limitations documented</dd></div>
+            </dl>
+            <a class="text-link" href="https://github.com/chaaruze/stica-clinic" target="_blank"
+              rel="noopener noreferrer">Review repository notice <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="capabilities">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Capabilities</p>
+            <h2>A practical foundation—and a clearly labeled learning direction.</h2>
+          </div>
+          <p>I separate tools I have used from subjects I am still developing. That keeps this portfolio useful to
+            employers without overstating my experience.</p>
+        </div>
+
+        <div class="capability-grid">
+          <article class="capability-card capability-card-primary reveal">
+            <p class="card-label">Working foundation</p>
+            <h3>Build, automate, verify, document.</h3>
+            <div class="capability-list">
+              <div><span>01</span><p><strong>Web and scripting</strong>HTML, CSS, JavaScript, PHP, Python foundations, and SQL foundations being refreshed.</p></div>
+              <div><span>02</span><p><strong>Workflow automation</strong>Agent instructions, scheduled tasks, Discord routing, and AI-assisted implementation with human review.</p></div>
+              <div><span>03</span><p><strong>Data quality</strong>Structured requirements, read-only analysis, discrepancy detection, validation, and approval gates.</p></div>
+              <div><span>04</span><p><strong>Technical operations</strong>Windows troubleshooting, Git/GitHub, Parsec remote access, documentation, and iterative testing.</p></div>
+            </div>
+          </article>
+
+          <article class="capability-card reveal">
+            <p class="card-label">Developing next</p>
+            <h3>Cybersecurity foundations</h3>
+            <p class="capability-intro">Cybersecurity is a future specialization—not a current professional claim. I
+              am building the fundamentals needed to approach it responsibly.</p>
+            <ul class="learning-list">
+              <li><span>Network and operating-system fundamentals</span><small>Strengthening core concepts before tool-heavy work.</small></li>
+              <li><span>Secure development practices</span><small>Input handling, access control, secrets, dependencies, and safer defaults.</small></li>
+              <li><span>Threat-aware design</span><small>Assets, trust boundaries, abuse cases, privacy, recovery, and least privilege.</small></li>
+              <li><span>Documented practice labs</span><small>Building small, reproducible exercises with clear scope and lessons learned.</small></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="credentials">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Credentials</p>
+            <h2>Verified learning and professional development.</h2>
+          </div>
+          <p>The credential itself stays available at full resolution, while the page presents the useful details in a
+            consistent, recruiter-friendly format.</p>
+        </div>
+
+        <div class="credential-grid">
+          <article class="credential-card credential-featured reveal">
+            <a class="credential-media credential-media-portrait" href="https://cert.efset.org/en/ox3wuJ"
+              target="_blank" rel="noopener noreferrer" aria-label="Verify the EF SET English Certificate">
+              <img src="images/efset-c1-certificate-thumb.webp"
+                alt="EF SET English Certificate awarded to John Charles Omagap" width="720" height="1018"
+                loading="lazy" decoding="async">
+              <span>Open verified credential ↗</span>
+            </a>
+            <div class="credential-copy">
+              <div class="credential-topline"><span class="verified-dot"></span>Verified credential</div>
+              <h3>EF SET English Certificate</h3>
+              <div class="score-lockup"><strong>66<span>/100</span></strong><div><b>CEFR C1</b><span>Advanced</span></div></div>
+              <p>Awarded August 1, 2025. Reading and listening were assessed at C2; writing and speaking at B2.</p>
+              <a class="button button-secondary button-small" href="https://cert.efset.org/en/ox3wuJ" target="_blank"
+                rel="noopener noreferrer">Verify with EF SET</a>
+            </div>
+          </article>
+
+          <article class="credential-card reveal">
+            <a class="credential-media" href="images/certificate-1.jpg" target="_blank" rel="noopener noreferrer"
+              aria-label="Open the full technology seminar certificate">
+              <img src="images/certificate-1.jpg" alt="Technology seminar certificate of attendance" width="1755"
+                height="1241" loading="lazy" decoding="async">
+              <span>Open full certificate ↗</span>
+            </a>
+            <div class="credential-copy">
+              <div class="credential-topline credential-topline-neutral">Professional development</div>
+              <h3>Tech Horizon: Navigating Future Trends in Information Technology</h3>
+              <p>Certificate of attendance · STI College Alabang · May 31, 2024. It is presented as professional
+                development, not as a technical qualification.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="about">
+      <div class="container about-grid">
+        <div class="about-copy reveal">
+          <p class="eyebrow">About</p>
+          <h2>A careful problem-solver early in his career.</h2>
+          <p>I am a third-year BS Computer Science student at Pamantasang Lungsod ng Muntinlupa. I enjoy turning an
+            unclear technical problem into explicit requirements, testing a solution against the real outcome, and
+            documenting the limitations instead of hiding them.</p>
+          <p>I also serve as Business Manager in our Computer Science course student council for AY 2026–2027, where I
+            support coordination and administrative work. I am seeking part-time remote opportunities where I can
+            contribute, learn documented systems, and grow across software, technical operations, AI/data work, and
+            eventually cybersecurity.</p>
+        </div>
+
+        <dl class="profile-details reveal">
+          <div><dt>Education</dt><dd>BS Computer Science, third year<br><span>Expected graduation: 2028</span></dd></div>
+          <div><dt>Leadership</dt><dd>Business Manager<br><span>Computer Science Course Student Council</span></dd></div>
+          <div><dt>Languages</dt><dd>Native Tagalog<br><span>EF SET-certified C1 English</span></dd></div>
+          <div><dt>Availability</dt><dd>Part-time remote<br><span>Flexible asynchronous work preferred</span></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-card reveal">
+        <div>
+          <p class="eyebrow eyebrow-light">Contact</p>
+          <h2>Looking for a reliable early-career contributor?</h2>
+          <p>I am open to conversations about part-time remote work, internships, project collaboration, and learning
+            opportunities in software, technical operations, AI/data, and cybersecurity-adjacent teams.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-light" href="mailto:0charlesomagap@gmail.com">0charlesomagap@gmail.com</a>
+          <div class="contact-links">
+            <a href="https://www.linkedin.com/in/john-charles-omagap-670958306/" target="_blank"
+              rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/chaaruze" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="current-year">2026</span> John Charles Omagap.</p>
+      <p>Built with transparent AI assistance and human review.</p>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20260727-2"></script>
 </body>
 
 </html>

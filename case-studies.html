@@ -1,107 +1,115 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
     content="Sanitized technical case studies by John Charles Omagap covering workflow automation and human-in-the-loop data quality.">
   <meta name="author" content="John Charles Omagap">
-  <meta name="theme-color" content="#0d1117">
-  <title>Case Studies | John Charles Omagap</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+  <meta name="theme-color" content="#f6f8fb">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css?v=20260727-1">
-  <link rel="icon" type="image/png" href="images/website-logo.png">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="styles.css?v=20260727-2">
+  <title>Case Studies | John Charles Omagap</title>
 </head>
 
-<body data-theme="dark">
-  <header class="header fixed-top">
-    <nav class="navbar navbar-expand-lg py-3">
-      <div class="container">
-        <a class="navbar-brand fw-bold fs-5" href="index.html">John Charles Omagap</a>
-        <a class="btn btn-outline-primary" href="index.html#projects">
-          <i class="fas fa-arrow-left me-2"></i>Back to Portfolio
-        </a>
-      </div>
-    </nav>
+<body>
+  <a class="skip-link" href="#case-content">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="John Charles Omagap, portfolio home">
+        <span class="brand-mark" aria-hidden="true">JC</span>
+        <span class="brand-name">John Charles Omagap</span>
+      </a>
+      <a class="case-back" href="index.html#work"><span aria-hidden="true">←</span> Back to portfolio</a>
+    </div>
   </header>
 
-  <main class="case-study-page">
-    <section class="case-study-hero py-5">
-      <div class="container">
-        <p class="case-study-eyebrow">Selected work</p>
-        <h1 class="display-4 fw-bold mb-4">Sanitized Case Studies</h1>
-        <p class="lead text-secondary mb-0">Evidence-focused accounts of what I configured, reviewed, and learned.
-          Private records, credentials, and third-party information are replaced with aggregate or synthetic examples.</p>
+  <main class="case-page" id="case-content">
+    <section class="case-hero">
+      <div class="container reveal">
+        <p class="eyebrow">Selected evidence</p>
+        <h1>Technical case studies with privacy boundaries.</h1>
+        <p>These accounts distinguish what I configured, what I personally reviewed, and what the evidence can
+          support. Private records, credentials, and third-party information are replaced with aggregate or synthetic
+          examples.</p>
+        <nav class="case-index" aria-label="Case studies on this page">
+          <a href="#student-operations">Student Operations Automation</a>
+          <a href="#ticktick">10,700-Record Task Audit</a>
+        </nav>
       </div>
     </section>
 
-    <section id="student-operations" class="py-5">
+    <section class="case-section" id="student-operations">
       <div class="container">
-        <article class="case-study-card">
-          <div class="case-study-heading">
+        <article class="case-article reveal">
+          <header class="case-header">
             <div>
-              <p class="case-study-eyebrow">OpenClaw &middot; Python &middot; JavaScript &middot; Discord</p>
-              <h2 class="display-6 fw-bold">Student Operations Automation</h2>
-              <p class="text-secondary">Personal academic prototype &middot; February–June 2026</p>
+              <p class="case-kicker">OpenClaw · Python · JavaScript · Discord</p>
+              <h2>Student Operations Automation</h2>
+              <p class="case-subtitle">Personal academic prototype · February–June 2026</p>
             </div>
-            <span class="case-study-status">Sanitized</span>
+            <span class="case-status">Sanitized</span>
+          </header>
+
+          <div class="metric-grid" aria-label="Project metrics">
+            <div class="metric"><strong>3</strong><span>separately configured agents</span></div>
+            <div class="metric"><strong>12</strong><span>scheduled workflows</span></div>
+            <div class="metric"><strong>5,894</strong><span>recorded scheduler outcomes</span></div>
           </div>
 
-          <div class="case-metric-grid">
-            <div class="case-metric"><strong>3</strong><span>configured agents</span></div>
-            <div class="case-metric"><strong>12</strong><span>scheduled jobs</span></div>
-            <div class="case-metric"><strong>5,894</strong><span>scheduler records</span></div>
-            <div class="case-metric"><strong>93.7%</strong><span>successful non-skipped runs</span></div>
-          </div>
-
-          <div class="row g-4 mt-2">
-            <div class="col-lg-6">
-              <h3 class="h5">Problem</h3>
-              <p>Google Classroom made it cumbersome to review announcements across multiple subjects. I wanted one
-                central Discord destination for relevant updates, reminders, and personal study notes.</p>
+          <div class="case-two-column">
+            <div class="case-block">
+              <h3>Problem</h3>
+              <p>Reviewing announcements across multiple Google Classroom subjects was cumbersome. I wanted one
+                designated Discord destination for relevant updates, reminders, and personal study outputs.</p>
             </div>
-            <div class="col-lg-6">
-              <h3 class="h5">My contribution</h3>
+            <div class="case-block">
+              <h3>My contribution</h3>
               <p>I configured and extended an OpenClaw deployment using separate agent workspaces, reusable
                 instructions and skills, cron scheduling, Discord routing, and AI-assisted Python and JavaScript
                 integrations.</p>
             </div>
           </div>
 
-          <h3 class="h5 mt-4">Workflow</h3>
-          <div class="workflow-line" aria-label="Course data to Discord workflow">
-            <span>Accessible course updates</span><i class="fas fa-arrow-right"></i><span>Poll and deduplicate</span>
-            <i class="fas fa-arrow-right"></i><span>Route by purpose</span><i class="fas fa-arrow-right"></i>
+          <h3>Course-update workflow</h3>
+          <div class="workflow" aria-label="Course update workflow">
+            <span>Accessible course updates</span>
+            <span>Poll and deduplicate</span>
+            <span>Route by purpose</span>
             <span>Designated Discord delivery</span>
           </div>
-          <div class="workflow-line" aria-label="Caption to study-note workflow">
-            <span>Built-in Meet captions</span><i class="fas fa-arrow-right"></i><span>Local personal capture</span>
-            <i class="fas fa-arrow-right"></i><span>Summary and task extraction</span>
-            <i class="fas fa-arrow-right"></i><span>Study output</span>
+
+          <h3>Personal study-note workflow</h3>
+          <div class="workflow" aria-label="Personal study-note workflow">
+            <span>Built-in Meet captions</span>
+            <span>Local personal capture</span>
+            <span>Summary and task extraction</span>
+            <span>Private study output</span>
           </div>
 
-          <h3 class="h5 mt-4">Evidence and interpretation</h3>
+          <h3>Evidence and interpretation</h3>
           <ul>
             <li>Historical logs contain 3,254 successful, 2,420 skipped, and 220 failed scheduler records.</li>
-            <li>These figures measure scheduled executions—not unique announcements, meetings, or delivered messages.</li>
+            <li>These figures represent recorded scheduled executions—not unique announcements, meetings, or delivered messages.</li>
             <li>The practical benefit was reducing repeated navigation across individual Classroom subjects; time saved was not measured.</li>
           </ul>
 
-          <div class="case-study-notice mt-4">
-            <h3 class="h5"><i class="fas fa-user-shield me-2"></i>Privacy and consent boundary</h3>
-            <p class="mb-0">The caption component used Google Meet's built-in captions during meetings I attended and
-              was created for personal note-taking. Participants were not asked to approve automated capture, so no
-              real transcript, class content, participant information, server data, or configuration is published.
-              Every public example will use fictional inputs, and the workflow should not be redeployed for shared
-              content without organizational permission and informed participants.</p>
-          </div>
+          <aside class="notice">
+            <h3>Privacy boundary</h3>
+            <p>The caption component was a personal note-taking pilot that processed my on-screen Google Meet captions.
+              This public case study includes no transcripts, class content, participant information, server data, or
+              configuration. Any future or shared deployment would require institution-approved tooling, informed
+              participants, explicit retention controls, and a review of applicable policies.</p>
+          </aside>
 
-          <h3 class="h5 mt-4">Limitations and next iteration</h3>
-          <ul class="mb-0">
+          <h3>Limitations and next iteration</h3>
+          <ul>
             <li>No complete automated test suite or CI pipeline was present in the recovered prototype.</li>
             <li>The caption-processing component was a short pilot, while other scheduled workflows ran longer.</li>
             <li>A public-safe rebuild should use synthetic fixtures, least-privilege access, retries, deduplication tests, and explicit retention controls.</li>
@@ -110,63 +118,65 @@
       </div>
     </section>
 
-    <section id="ticktick" class="py-5">
+    <section class="case-section" id="ticktick">
       <div class="container">
-        <article class="case-study-card">
-          <div class="case-study-heading">
+        <article class="case-article reveal">
+          <header class="case-header">
             <div>
-              <p class="case-study-eyebrow">Human-in-the-loop AI &middot; Data quality &middot; Approval gates</p>
-              <h2 class="display-6 fw-bold">Safely Auditing 10,700 Task Records</h2>
-              <p class="text-secondary">Personal data-quality workflow &middot; Synthetic public presentation</p>
+              <p class="case-kicker">Human-in-the-loop AI · Data quality · Approval controls</p>
+              <h2>Safely Auditing 10,700 Task Records</h2>
+              <p class="case-subtitle">Personal data-quality workflow · Synthetic public presentation</p>
             </div>
-            <span class="case-study-status">Approved</span>
-          </div>
+            <span class="case-status">Validated</span>
+          </header>
 
-          <div class="row g-4">
-            <div class="col-lg-6">
-              <h3 class="h5">Problem</h3>
+          <div class="case-two-column">
+            <div class="case-block">
+              <h3>Problem</h3>
               <p>Reviewing a large personal task archive manually was impractical, but allowing an agent to reorganize
                 it without safeguards risked irreversible loss of history and context.</p>
             </div>
-            <div class="col-lg-6">
-              <h3 class="h5">My responsibility</h3>
+            <div class="case-block">
+              <h3>My responsibility</h3>
               <p>I defined duplicate criteria, preferred false negatives over aggressive merging, prohibited
                 destructive changes without approval, challenged an incorrect completion claim, and required a
                 validated backup.</p>
             </div>
           </div>
 
-          <h3 class="h5 mt-4">Safety process</h3>
-          <ol class="case-step-list">
-            <li><strong>Define boundaries.</strong> Identify protected fields, acceptable matches, and success criteria.</li>
-            <li><strong>Analyze without mutation.</strong> Produce candidates and reports before changing source data.</li>
-            <li><strong>Verify claims.</strong> Compare the reported result with the actual destination state.</li>
-            <li><strong>Build a recoverable copy.</strong> Require a backup before any irreversible operation.</li>
-            <li><strong>Validate structure.</strong> Confirm 10,700 parsed rows and identifier integrity.</li>
-            <li><strong>Gate destructive actions.</strong> Keep merge, archive, completion, and deletion behind human approval.</li>
+          <h3>Safety process</h3>
+          <ol class="case-steps">
+            <li><span><strong>Define boundaries.</strong> Identify protected fields, acceptable matches, and success criteria.</span></li>
+            <li><span><strong>Analyze without mutation.</strong> Produce candidates and reports before changing source data.</span></li>
+            <li><span><strong>Verify claims.</strong> Compare the reported result with the actual destination state.</span></li>
+            <li><span><strong>Build a recoverable copy.</strong> Require a backup before any irreversible operation.</span></li>
+            <li><span><strong>Validate structure.</strong> Confirm 10,700 parsed rows and identifier integrity.</span></li>
+            <li><span><strong>Gate destructive actions.</strong> Keep merge, archive, completion, and deletion behind human approval.</span></li>
           </ol>
 
-          <div class="case-study-notice mt-4">
-            <h3 class="h5"><i class="fas fa-lightbulb me-2"></i>Result and lesson</h3>
+          <aside class="notice">
+            <h3>Result and lesson</h3>
             <p>Produced a structurally validated dataset covering 10,700 task records before considering a destructive
-              operation.</p>
-            <p class="mb-0"><strong>An agent's completion message is not evidence that the intended outcome occurred.</strong></p>
-          </div>
+              operation. An agent's completion message is not evidence that the intended outcome occurred.</p>
+          </aside>
 
-          <h3 class="h5 mt-4">Skills demonstrated</h3>
-          <p class="mb-0">Human-in-the-loop automation, structured requirements, data-quality validation, failure
-            detection, backup-first planning, and approval controls. Public examples use fictional tasks and a small
-            synthetic dataset; no real titles, notes, schedules, URLs, IDs, or account data are included.</p>
+          <h3>Skills demonstrated</h3>
+          <p>Human-in-the-loop automation, structured requirements, data-quality validation, failure detection,
+            backup-first planning, and approval controls. Public examples use fictional tasks and a small synthetic
+            dataset; no real titles, notes, schedules, URLs, IDs, or account data are included.</p>
         </article>
       </div>
     </section>
   </main>
 
-  <footer class="footer-section text-center py-4">
-    <div class="container">
-      <p class="footer-text mb-0">&copy; 2026 John Charles Omagap. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="current-year">2026</span> John Charles Omagap.</p>
+      <p>Case studies use aggregate metrics and synthetic examples.</p>
     </div>
   </footer>
+
+  <script src="script.js?v=20260727-2"></script>
 </body>
 
 </html>
