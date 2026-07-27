@@ -488,83 +488,6 @@ a {
   color: var(--muted);
 }
 
-.featured-project {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(330px, 0.65fr);
-  gap: 0;
-  overflow: hidden;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius-lg);
-  background: var(--paper);
-  box-shadow: var(--shadow-md);
-}
-
-.browser-mockup {
-  align-self: stretch;
-  padding: 24px 0 24px 24px;
-  background: linear-gradient(145deg, #e9f1f7, #dbe8f1);
-}
-
-.browser-mockup > a {
-  display: block;
-  height: calc(100% - 40px);
-  min-height: 390px;
-  overflow: hidden;
-  border: 1px solid rgba(16, 36, 59, 0.2);
-  border-top: 0;
-  border-radius: 0 0 0 12px;
-  background: #111;
-}
-
-.browser-mockup img {
-  width: 100%;
-  height: 100%;
-  min-height: 390px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.browser-bar {
-  display: grid;
-  height: 40px;
-  grid-template-columns: 86px 1fr 86px;
-  align-items: center;
-  border: 1px solid rgba(16, 36, 59, 0.2);
-  border-bottom: 0;
-  border-radius: 12px 0 0 0;
-  background: #fff;
-}
-
-.browser-dots {
-  display: flex;
-  gap: 6px;
-  padding-left: 14px;
-}
-
-.browser-dots span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #b8c6d2;
-}
-
-.browser-address {
-  overflow: hidden;
-  color: var(--muted-light);
-  font-size: 10px;
-  font-weight: 600;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.featured-project-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 48px 42px;
-}
-
 .tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -589,7 +512,6 @@ a {
   color: #5d6b79;
 }
 
-.project-overline,
 .card-label,
 .case-kicker {
   margin: 24px 0 10px;
@@ -600,7 +522,6 @@ a {
   text-transform: uppercase;
 }
 
-.featured-project-copy h3,
 .project-card h3,
 .capability-card h3,
 .credential-copy h3,
@@ -611,44 +532,6 @@ a {
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.2;
-}
-
-.featured-project-copy > p:not(.project-overline) {
-  margin: 16px 0 0;
-  color: var(--muted);
-}
-
-.check-list {
-  display: grid;
-  gap: 10px;
-  margin: 22px 0 28px;
-  padding: 0;
-  list-style: none;
-}
-
-.check-list li {
-  position: relative;
-  padding-left: 25px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.check-list li::before {
-  position: absolute;
-  top: 0.45em;
-  left: 0;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--teal);
-  box-shadow: inset 0 0 0 4px #dff1ee;
-  content: "";
-}
-
-.featured-project-copy .project-disclosure {
-  margin: -14px 0 24px;
-  color: var(--muted-light);
-  font-size: 12px;
 }
 
 .text-link {
@@ -669,14 +552,13 @@ a {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
-  margin-top: 24px;
 }
 
 .project-card {
   display: flex;
-  min-height: 650px;
+  min-height: 0;
   flex-direction: column;
   overflow: hidden;
   padding: 0;
@@ -688,7 +570,9 @@ a {
 }
 
 .project-preview {
-  min-height: 238px;
+  height: 300px;
+  min-height: 300px;
+  margin: 0;
   padding: 18px;
   border-bottom: 1px solid var(--line);
 }
@@ -721,6 +605,44 @@ a {
   border-color: rgba(151, 93, 20, 0.2);
   background: #fff8e8;
   color: #8a5512;
+}
+
+.sillytavern-preview {
+  margin: 0;
+  background:
+    radial-gradient(circle at 10% 12%, rgba(36, 104, 154, 0.13), transparent 34%),
+    linear-gradient(145deg, #e9f1f7, #dbe8f1);
+}
+
+.sillytavern-evidence {
+  display: block;
+  height: 190px;
+  overflow: hidden;
+  margin-top: 12px;
+  border: 1px solid rgba(16, 36, 59, 0.2);
+  border-radius: 12px;
+  background: #111;
+  box-shadow: 0 12px 30px rgba(16, 36, 59, 0.1);
+}
+
+.sillytavern-evidence img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.project-preview-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.project-preview-note-warning {
+  color: #6f4a16;
 }
 
 .automation-preview {
@@ -1006,14 +928,6 @@ a {
   border: 2px solid rgba(255, 255, 255, 0.94);
 }
 
-.stica-disclosure {
-  margin: 10px 0 0;
-  color: #6f4a16;
-  font-size: 8px;
-  font-weight: 700;
-  line-height: 1.35;
-}
-
 .project-card-body {
   display: flex;
   flex: 1;
@@ -1048,6 +962,15 @@ a {
 
 .project-card .text-link {
   margin-top: auto;
+}
+
+.project-card .project-links {
+  align-items: flex-start;
+  margin-top: auto;
+}
+
+.project-card .project-links .text-link {
+  margin-top: 0;
 }
 
 .project-facts {
@@ -1720,41 +1643,6 @@ a {
     min-height: 510px;
   }
 
-  .featured-project {
-    grid-template-columns: 1fr;
-  }
-
-  .browser-mockup {
-    padding: 24px;
-  }
-
-  .browser-bar {
-    border-radius: 12px 12px 0 0;
-  }
-
-  .browser-mockup > a {
-    min-height: 0;
-    aspect-ratio: 2.16 / 1;
-    border-radius: 0 0 12px 12px;
-  }
-
-  .browser-mockup img {
-    min-height: 0;
-  }
-
-  .featured-project-copy {
-    padding: 42px;
-  }
-
-  .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .project-card:last-child {
-    grid-column: 1 / -1;
-    min-height: 380px;
-  }
-
   .credential-grid {
     grid-template-columns: 1fr;
   }
@@ -1886,6 +1774,15 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-preview {
+    height: auto;
+    min-height: 226px;
+  }
+
   .about-grid,
   .contact-card {
     gap: 46px;
@@ -1985,19 +1882,6 @@ a {
     font-size: 36px;
   }
 
-  .browser-mockup {
-    padding: 14px;
-  }
-
-  .browser-bar {
-    grid-template-columns: 64px 1fr 64px;
-  }
-
-  .browser-address {
-    font-size: 8px;
-  }
-
-  .featured-project-copy,
   .project-card-body,
   .capability-card,
   .credential-copy,
@@ -2010,21 +1894,10 @@ a {
     padding: 15px;
   }
 
-  .featured-project-copy h3,
   .project-card h3,
   .capability-card h3,
   .credential-copy h3 {
     font-size: 24px;
-  }
-
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-card,
-  .project-card:last-child {
-    min-height: 0;
-    grid-column: auto;
   }
 
   .project-number {
@@ -2101,15 +1974,6 @@ a {
   }
 }
 
-@media (min-width: 651px) and (max-width: 1050px) {
-  .stica-evidence-grid {
-    width: min(100%, 800px);
-    min-height: 0;
-    aspect-ratio: 2.2 / 1;
-    margin-inline: auto;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -2149,7 +2013,6 @@ a {
     transform: none;
   }
 
-  .featured-project,
   .project-card,
   .credential-card,
   .case-article {

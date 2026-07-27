@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=20260727-2">
+  <link rel="stylesheet" href="styles.css?v=20260727-3">
   <title>John Charles Omagap | Computer Science Portfolio</title>
 </head>
 
@@ -105,47 +105,43 @@
             clearly instead of being presented as production software.</p>
         </div>
 
-        <article class="featured-project reveal">
-          <div class="browser-mockup">
-            <div class="browser-bar" aria-hidden="true">
-              <div class="browser-dots"><span></span><span></span><span></span></div>
-              <div class="browser-address">SillyTavern · Chat History</div>
-            </div>
-            <a href="images/sillytavern-too-many-chats-sanitized.png" target="_blank" rel="noopener noreferrer"
-              aria-label="Open the full Too Many Chats project screenshot">
-              <img src="images/sillytavern-too-many-chats-sanitized.webp"
-                alt="Too Many Chats extension organizing SillyTavern chat history into colored folders" width="1846"
-                height="852" loading="lazy" decoding="async">
-            </a>
-          </div>
-
-          <div class="featured-project-copy">
-            <div class="tag-row">
-              <span class="tag">Independent extension</span>
-              <span class="tag tag-muted">Archived</span>
-            </div>
-            <p class="project-overline">JavaScript · CSS · AI-assisted development</p>
-            <h3>Too Many Chats for SillyTavern</h3>
-            <p>Designed a folder-based organization layer for people managing large SillyTavern chat histories. The
-              extension added per-character folders, collapsible groups, contextual move actions, persistent state,
-              and a mobile-friendly interface.</p>
-            <ul class="check-list">
-              <li>Started from a real organization problem in my own workflow.</li>
-              <li>Shared publicly and refined through community feedback.</li>
-              <li>Archived transparently when continued maintenance was no longer sustainable.</li>
-            </ul>
-            <p class="project-disclosure">Screenshot privacy note: all visible chat names and content are synthetic.</p>
-            <div class="project-links">
-              <a class="text-link" href="https://github.com/chaaruze/SillyTavern-Too-Many-Chats" target="_blank"
-                rel="noopener noreferrer">View source and archive notice <span aria-hidden="true">↗</span></a>
-              <a class="text-link" href="https://www.reddit.com/r/SillyTavernAI/comments/1qh6due/extension_tired_of_organizing_your_chats_too_many/"
-                target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Read the community launch <span
-                  aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </article>
-
         <div class="project-grid">
+          <article class="project-card reveal">
+            <figure class="project-preview sillytavern-preview">
+              <div class="mockup-toolbar">
+                <span>Too Many Chats · SillyTavern extension</span>
+                <span class="mockup-state mockup-state-warning">Archived</span>
+              </div>
+              <a class="sillytavern-evidence" href="images/sillytavern-too-many-chats-sanitized.png"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="Open the full Too Many Chats interface screenshot with synthetic chat data">
+                <img src="images/sillytavern-too-many-chats-preview.webp"
+                  alt="Cropped Too Many Chats interface preview organizing synthetic SillyTavern chats into colored folders"
+                  width="1000" height="380" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="project-preview-note">Actual interface capture · synthetic chat data</figcaption>
+            </figure>
+            <div class="project-card-body">
+              <div class="project-number">01</div>
+              <div class="tag-row"><span class="tag">Independent extension</span><span
+                  class="tag tag-muted">Archived</span></div>
+              <h3>Too Many Chats for SillyTavern</h3>
+              <p>Built a folder-based organization layer for large chat histories, including collapsible groups,
+                contextual move actions, persistent state, and a mobile-friendly interface.</p>
+              <dl class="project-facts">
+                <div><dt>Role</dt><dd>Independent developer</dd></div>
+                <div><dt>Focus</dt><dd>UX, state persistence, community release</dd></div>
+              </dl>
+              <div class="project-links">
+                <a class="text-link" href="https://github.com/chaaruze/SillyTavern-Too-Many-Chats" target="_blank"
+                  rel="noopener noreferrer">View source and archive notice <span aria-hidden="true">↗</span></a>
+                <a class="text-link" href="https://www.reddit.com/r/SillyTavernAI/comments/1qh6due/extension_tired_of_organizing_your_chats_too_many/"
+                  target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Community launch <span
+                    aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+
           <article class="project-card reveal">
             <div class="project-preview automation-preview" role="img"
               aria-label="Synthetic workflow mockup showing course updates routed through agents to a designated Discord channel">
@@ -178,7 +174,7 @@
               </div>
             </div>
             <div class="project-card-body">
-              <div class="project-number">01</div>
+              <div class="project-number">02</div>
               <div class="tag-row"><span class="tag">Sanitized case study</span></div>
               <h3>Student Operations Automation</h3>
               <p>Configured three isolated agents, reusable instructions, Discord routing, and 12 scheduled workflows
@@ -219,7 +215,7 @@
               </div>
             </div>
             <div class="project-card-body">
-              <div class="project-number">02</div>
+              <div class="project-number">03</div>
               <div class="tag-row"><span class="tag">Human-in-the-loop review</span></div>
               <h3>10K+ Record Safety-First Audit</h3>
               <p>Defined duplicate rules, required read-only analysis and backup evidence, challenged an incorrect
@@ -234,7 +230,7 @@
           </article>
 
           <article class="project-card reveal">
-            <div class="project-preview stica-preview">
+            <figure class="project-preview stica-preview">
               <div class="mockup-toolbar">
                 <span>STICA clinic system · local demo</span>
                 <span class="mockup-state mockup-state-warning">Maintenance-only</span>
@@ -245,7 +241,7 @@
                   aria-label="Open full-size STICA student records screenshot with synthetic demo data">
                   <img src="images/stica-student-records-demo.webp"
                     alt="STICA Clinic student-records interface populated with visibly synthetic demo records"
-                    width="1440" height="960" loading="lazy">
+                    width="1440" height="960" loading="lazy" decoding="async">
                   <span>Student records</span>
                 </a>
                 <a class="stica-shot stica-shot-secondary" href="images/stica-medicine-inventory-demo.webp"
@@ -253,14 +249,15 @@
                   aria-label="Open full-size STICA medicine inventory screenshot with synthetic demo data">
                   <img src="images/stica-medicine-inventory-demo.webp"
                     alt="STICA Clinic inventory interface populated with synthetic demo items"
-                    width="1440" height="960" loading="lazy">
+                    width="1440" height="960" loading="lazy" decoding="async">
                   <span>Inventory</span>
                 </a>
               </div>
-              <p class="stica-disclosure">Actual application capture · synthetic demo data · no real medical records</p>
-            </div>
+              <figcaption class="project-preview-note project-preview-note-warning">Actual application capture ·
+                synthetic demo data · no real medical records</figcaption>
+            </figure>
             <div class="project-card-body">
-              <div class="project-number">03</div>
+              <div class="project-number">04</div>
               <div class="tag-row"><span class="tag">Capstone prototype</span><span
                   class="tag tag-muted">Maintenance-only</span></div>
               <h3>STICA Clinic System</h3>
@@ -268,7 +265,7 @@
                 built with HTML, CSS, JavaScript, PHP, and SQL.</p>
               <dl class="project-facts">
                 <div><dt>Role</dt><dd>Team lead / lead programmer</dd></div>
-                <div><dt>Status</dt><dd>Academic prototype; limitations documented</dd></div>
+                <div><dt>Focus</dt><dd>Team leadership, PHP, SQL, clinic workflows</dd></div>
               </dl>
               <a class="text-link" href="https://github.com/chaaruze/stica-clinic" target="_blank"
                 rel="noopener noreferrer">Review repository notice <span aria-hidden="true">↗</span></a>
