@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=20260727-3">
+  <link rel="stylesheet" href="styles.css?v=20260727-4">
   <title>Case Studies | John Charles Omagap</title>
 </head>
 
@@ -33,14 +33,13 @@
   <main class="case-page" id="case-content">
     <section class="case-hero">
       <div class="container reveal">
-        <p class="eyebrow">Selected evidence</p>
-        <h1>Technical case studies with privacy boundaries.</h1>
-        <p>These accounts distinguish what I configured, what I personally reviewed, and what the evidence can
-          support. Private records, credentials, and third-party information are replaced with aggregate or synthetic
-          examples.</p>
+        <p class="eyebrow">Case studies</p>
+        <h1>How I approached two practical problems.</h1>
+        <p>These summaries explain the problem, what I configured or reviewed, and what I would improve next. Private
+          records and third-party information are omitted or replaced with reconstructed examples.</p>
         <nav class="case-index" aria-label="Case studies on this page">
           <a href="#student-operations">Student Operations Automation</a>
-          <a href="#ticktick">10K+ Task Audit</a>
+          <a href="#ticktick">Task Archive Safety Review</a>
         </nav>
       </div>
     </section>
@@ -50,18 +49,12 @@
         <article class="case-article reveal">
           <header class="case-header">
             <div>
-              <p class="case-kicker">OpenClaw · Python · JavaScript · Discord</p>
+              <p class="case-kicker">Personal workflow · OpenClaw, Python, JavaScript, and Discord</p>
               <h2>Student Operations Automation</h2>
-              <p class="case-subtitle">Personal academic prototype · February–June 2026</p>
+              <p class="case-subtitle">Personal academic workflow · February–June 2026</p>
             </div>
-            <span class="case-status">Sanitized</span>
+            <span class="case-status">Private prototype</span>
           </header>
-
-          <div class="metric-grid" aria-label="Project metrics">
-            <div class="metric"><strong>3</strong><span>separately configured agents</span></div>
-            <div class="metric"><strong>12</strong><span>scheduled workflows</span></div>
-            <div class="metric"><strong>5,894</strong><span>recorded scheduler outcomes</span></div>
-          </div>
 
           <div class="case-two-column">
             <div class="case-block">
@@ -70,10 +63,10 @@
                 designated Discord destination for relevant updates, reminders, and personal study outputs.</p>
             </div>
             <div class="case-block">
-              <h3>My contribution</h3>
-              <p>I configured and extended an OpenClaw deployment using separate agent workspaces, reusable
-                instructions and skills, cron scheduling, Discord routing, and AI-assisted Python and JavaScript
-                integrations.</p>
+              <h3>What I did</h3>
+              <p>I configured three separate OpenClaw workspaces, wrote reusable instructions, set up 12 scheduled
+                tasks, and routed selected updates to Discord. I used AI assistance for parts of the Python and
+                JavaScript integration, then reviewed the output.</p>
             </div>
           </div>
 
@@ -93,19 +86,16 @@
             <span>Private study output</span>
           </div>
 
-          <h3>Evidence and interpretation</h3>
-          <ul>
-            <li>Historical logs contain 3,254 successful, 2,420 skipped, and 220 failed scheduler records.</li>
-            <li>These figures represent recorded scheduled executions—not unique announcements, meetings, or delivered messages.</li>
-            <li>The practical benefit was reducing repeated navigation across individual Classroom subjects; time saved was not measured.</li>
-          </ul>
+          <h3>What the records show</h3>
+          <p>The recovered logs contain 5,894 scheduler records: 3,254 successful, 2,420 skipped, and 220 failed.
+            These are execution records, not unique announcements or delivered messages. I did not measure time saved;
+            the practical benefit was having fewer places to check.</p>
 
           <aside class="notice">
-            <h3>Privacy boundary</h3>
-            <p>The caption component was a personal note-taking pilot that processed my on-screen Google Meet captions.
-              This public case study includes no transcripts, class content, participant information, server data, or
-              configuration. Any future or shared deployment would require institution-approved tooling, informed
-              participants, explicit retention controls, and a review of applicable policies.</p>
+            <h3>Privacy note</h3>
+            <p>Class and participant data are not shown. The caption component was a short personal pilot based on
+              captions visible in my Meet session. I would not deploy it for shared or institutional use without
+              permission, approved tooling, and clear retention rules.</p>
           </aside>
 
           <h3>Limitations and next iteration</h3>
@@ -123,11 +113,11 @@
         <article class="case-article reveal">
           <header class="case-header">
             <div>
-              <p class="case-kicker">Human-in-the-loop AI · Data quality · Approval controls</p>
-              <h2>Safely Auditing 10K+ Task Records</h2>
-              <p class="case-subtitle">Personal data-quality workflow · Synthetic public presentation</p>
+              <p class="case-kicker">Data review · Backup and approval controls</p>
+              <h2>Task Archive Safety Review</h2>
+              <p class="case-subtitle">Personal data-quality workflow</p>
             </div>
-            <span class="case-status">Validated</span>
+            <span class="case-status">Read-only review</span>
           </header>
 
           <div class="case-two-column">
@@ -137,10 +127,9 @@
                 it without safeguards risked irreversible loss of history and context.</p>
             </div>
             <div class="case-block">
-              <h3>My responsibility</h3>
-              <p>I defined duplicate criteria, preferred false negatives over aggressive merging, prohibited
-                destructive changes without approval, challenged an incorrect completion claim, and required a
-                validated backup.</p>
+              <h3>What I did</h3>
+              <p>I wrote rules for identifying duplicates, required a read-only report before any change, compared the
+                claimed result with the actual data, and required a backup before considering edits.</p>
             </div>
           </div>
 
@@ -157,15 +146,14 @@
 
           <aside class="notice">
             <h3>Result and lesson</h3>
-            <p>Produced a structurally validated review dataset covering more than 10,000 task records before
-              considering a destructive operation. An agent's completion message is not evidence that the intended
-              outcome occurred.</p>
+            <p>The review produced a structurally checked copy of more than 10,000 task records. It also caught a
+              mismatch between an agent’s completion message and the actual result, reinforcing that status messages
+              still need verification.</p>
           </aside>
 
-          <h3>Skills demonstrated</h3>
-          <p>Human-in-the-loop automation, structured requirements, data-quality validation, failure detection,
-            backup-first planning, and approval controls. Public examples use fictional tasks and a small synthetic
-            dataset; no real titles, notes, schedules, URLs, IDs, or account data are included.</p>
+          <h3>What it shows</h3>
+          <p>Requirement writing, data validation, discrepancy review, backup planning, and approval controls. Public
+            examples use fictional task data.</p>
         </article>
       </div>
     </section>
@@ -174,7 +162,6 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="current-year">2026</span> John Charles Omagap.</p>
-      <p>Case studies use aggregate metrics and synthetic examples.</p>
     </div>
   </footer>
 

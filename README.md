@@ -1,22 +1,22 @@
 # John Charles Omagap — Portfolio
 
-A light, recruiter-friendly portfolio for a BS Computer Science student building practical software, automation,
-data-quality, and privacy-aware technical projects while developing cybersecurity foundations.
+A light portfolio for a BS Computer Science student with projects in web development, automation, data review, and
+technical troubleshooting while developing cybersecurity foundations.
 
 ## What the site presents
 
-- A concise professional profile that supports software, IT operations, AI/data, and future cybersecurity paths.
-- Evidence-based project descriptions with honest maintenance and privacy status.
+- A concise professional profile for software, IT operations, AI/data, and future cybersecurity paths.
+- Project descriptions with current maintenance and privacy status.
 - A sanitized working-prototype showcase for the archived Too Many Chats SillyTavern extension.
 - Public-safe case studies for student-operations automation and a 10K+-record human-in-the-loop audit.
-- Synthetic, code-native automation and audit mockups that do not expose classroom, task, or Discord data.
+- Simple workflow reconstructions that do not expose classroom, task, or Discord data.
 - Real STICA application captures from an isolated local demo populated only with visibly synthetic records.
 - A verified EF SET C1 Advanced English credential and seminar-attendance evidence.
 
 ## Design approach
 
-- Light corporate visual system with Inter typography and a restrained navy, slate, blue, and teal palette.
-- A user-supplied color portrait with an AI-assisted background replacement; the edit is retained as a separate asset.
+- Light visual system with Inter typography and a restrained navy, slate, blue, and teal palette.
+- The user-supplied outdoor portrait, shown without a generated background.
 - Semantic HTML, keyboard-visible focus states, reduced-motion support, and responsive navigation.
 - No loading screen, Matrix animation, typewriter headline, progress-log automation, or third-party contact form.
 - Static HTML, CSS, and JavaScript with no build step.
