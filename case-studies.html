@@ -1,171 +1,227 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-    content="Sanitized technical case studies by John Charles Omagap covering workflow automation and human-in-the-loop data quality.">
+  <link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="description" content="Public-safe Engineering Field Notes by John Charles Omagap covering workflow automation, human-in-the-loop data quality, and verified AI-assisted work.">
   <meta name="author" content="John Charles Omagap">
-  <meta name="theme-color" content="#f6f8fb">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <meta name="theme-color" content="#f3efe6">
+  <script>document.documentElement.classList.add("js")</script>
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=20260727-4">
-  <title>Case Studies | John Charles Omagap</title>
+  <link rel="stylesheet" href="critical.css?v=20260816-1">
+  <link rel="stylesheet" href="styles.css?v=20260816-1" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="styles.css?v=20260816-1"></noscript>
+  <noscript><style>
+    @media (max-width: 900px) {
+      .site-header { position: static; }
+      .header-inner { padding-block: 10px; }
+      .case-hero { padding-top: 64px; }
+    }
+  </style></noscript>
+  <title>Engineering Field Notes | John Charles Omagap</title>
 </head>
-
-<body>
+<body class="case-body">
   <a class="skip-link" href="#case-content">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
 
   <header class="site-header" id="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="John Charles Omagap, portfolio home">
+    <div class="shell header-inner">
+      <a class="brand" href="index.html" aria-label="JC — John Charles Omagap, portfolio home">
         <span class="brand-mark" aria-hidden="true">JC</span>
         <span class="brand-name">John Charles Omagap</span>
       </a>
-      <a class="case-back" href="index.html#work"><span aria-hidden="true">←</span> Back to portfolio</a>
+      <a class="case-back" href="index.html#work"><span aria-hidden="true">&#8592;</span> Back to selected work</a>
     </div>
   </header>
 
-  <main class="case-page" id="case-content">
+  <main id="case-content">
     <section class="case-hero">
-      <div class="container reveal">
-        <p class="eyebrow">Case studies</p>
-        <h1>How I approached two practical problems.</h1>
-        <p>These summaries explain the problem, what I configured or reviewed, and what I would improve next. Private
-          records and third-party information are omitted or replaced with reconstructed examples.</p>
-        <nav class="case-index" aria-label="Case studies on this page">
-          <a href="#student-operations">Student Operations Automation</a>
-          <a href="#ticktick">Task Archive Safety Review</a>
+      <div class="shell case-hero-grid">
+        <div>
+          <p class="eyebrow">Engineering Field Notes</p>
+          <h1>Evidence before<br>the conclusion.</h1>
+        </div>
+        <div class="case-hero-copy">
+          <p>Two practical problems documented through constraints, decisions, available evidence, and honest limitations.</p>
+          <p class="case-privacy-line">Private records and third-party information are omitted or replaced with clearly labeled reconstructions.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="shell case-page-layout">
+      <aside class="case-toc" aria-label="Case study contents">
+        <p class="chapter-label">On this page</p>
+        <nav>
+          <a href="#student-operations"><span>01</span>Student Operations Automation</a>
+          <a href="#ticktick"><span>02</span>Task Archive Safety Review</a>
         </nav>
-      </div>
-    </section>
+        <a class="toc-back" href="index.html#work">Return to portfolio</a>
+      </aside>
 
-    <section class="case-section" id="student-operations">
-      <div class="container">
-        <article class="case-article reveal">
-          <header class="case-header">
+      <div class="case-content-column">
+        <article class="case-study" id="student-operations" data-case-study="automation">
+          <header class="case-study-header reveal">
+            <div class="case-study-number" aria-hidden="true">01</div>
             <div>
-              <p class="case-kicker">Personal workflow · OpenClaw, Python, JavaScript, and Discord</p>
+              <p class="project-kicker">Personal workflow / February–June 2026</p>
               <h2>Student Operations Automation</h2>
-              <p class="case-subtitle">Personal academic workflow · February–June 2026</p>
+              <p class="case-deck">Routing academic updates through a private destination while retaining review, privacy, and failure visibility.</p>
             </div>
-            <span class="case-status">Private prototype</span>
+            <span class="status">Private prototype</span>
           </header>
 
-          <div class="case-two-column">
-            <div class="case-block">
-              <h3>Problem</h3>
-              <p>Reviewing announcements across multiple Google Classroom subjects was cumbersome. I wanted one
-                designated Discord destination for relevant updates, reminders, and personal study outputs.</p>
+          <dl class="case-fact-rail reveal">
+            <div><dt>Role</dt><dd>Workflow designer and reviewer</dd></div>
+            <div><dt>Tools</dt><dd>OpenClaw, Python, JavaScript, Discord</dd></div>
+            <div><dt>Scope</dt><dd>3 workspaces / 12 scheduled tasks</dd></div>
+            <div><dt>Evidence</dt><dd>5,894 recovered scheduler records</dd></div>
+          </dl>
+
+          <section class="case-chapter reveal" id="automation-problem">
+            <p class="chapter-label">01 / Problem and constraint</p>
+            <div class="case-prose-grid">
+              <h3>Fewer places to check, without exposing classroom data.</h3>
+              <div><p>Reviewing announcements across multiple Google Classroom subjects was cumbersome. I wanted one designated Discord destination for relevant updates, reminders, and personal study outputs.</p><p>The public explanation could not include class content, account identifiers, participants, or private server data.</p></div>
             </div>
-            <div class="case-block">
-              <h3>What I did</h3>
-              <p>I configured three separate OpenClaw workspaces, wrote reusable instructions, set up 12 scheduled
-                tasks, and routed selected updates to Discord. I used AI assistance for parts of the Python and
-                JavaScript integration, then reviewed the output.</p>
+          </section>
+
+          <section class="case-chapter reveal">
+            <p class="chapter-label">02 / Decisions and implementation</p>
+            <div class="case-prose-grid">
+              <h3>Separate workspaces, reusable instructions, and purpose-based routing.</h3>
+              <div><p>I configured three separate OpenClaw workspaces, wrote reusable instructions, set up 12 scheduled tasks, and routed selected updates to Discord.</p><p>I used AI assistance for parts of the Python and JavaScript integration, then reviewed the resulting behavior and records.</p></div>
             </div>
-          </div>
+            <ol class="process-line" aria-label="Course update workflow">
+              <li><span>01</span><strong>Collect</strong><small>Accessible course updates</small></li>
+              <li><span>02</span><strong>Review</strong><small>Inspect collected records</small></li>
+              <li><span>03</span><strong>Route</strong><small>Separate by purpose</small></li>
+              <li><span>04</span><strong>Deliver</strong><small>Designated private channel</small></li>
+            </ol>
+            <div class="automation-ledger" aria-labelledby="automation-ledger-title">
+              <p class="chapter-label" id="automation-ledger-title">Sanitized workflow ledger</p>
+              <ol class="automation-ledger-list">
+                <li><span>01</span><div><strong>Source boundary</strong><p>Accessible course updates were collected from the configured workspaces; classroom and account identifiers are omitted.</p></div></li>
+                <li><span>02</span><div><strong>Review gate</strong><p>Collected records were reviewed before selected updates were routed onward. This public note does not claim a verified deduplication guarantee.</p></div></li>
+                <li><span>03</span><div><strong>Purpose route</strong><p>Three separate OpenClaw workspaces and 12 scheduled tasks kept destinations separated by purpose.</p></div></li>
+                <li><span>04</span><div><strong>Private delivery</strong><p>Selected updates were delivered to a designated Discord destination; this note does not claim complete delivery or time saved.</p></div></li>
+              </ol>
+            </div>
+          </section>
 
-          <h3>Course-update workflow</h3>
-          <div class="workflow" aria-label="Course update workflow">
-            <span>Accessible course updates</span>
-            <span>Poll and deduplicate</span>
-            <span>Route by purpose</span>
-            <span>Designated Discord delivery</span>
-          </div>
+          <section class="case-chapter assistance-verification reveal" aria-labelledby="automation-assistance-title">
+            <p class="chapter-label">Assistance &amp; verification</p>
+            <div class="case-prose-grid">
+              <h3 id="automation-assistance-title">AI assistance supported the integration; the decisions and checks remained mine.</h3>
+              <div class="limitations-grid">
+                <div><span>AI assisted</span><p>Parts of the Python and JavaScript integration used AI assistance.</p></div>
+                <div><span>I decided</span><p>I separated the work into three OpenClaw workspaces, wrote the reusable instructions, defined the 12 scheduled tasks, and chose what routed to Discord.</p></div>
+                <div><span>I verified</span><p>I reviewed the resulting behavior and the recovered scheduler records, including successful, skipped, and failed executions.</p></div>
+                <div><span>Available evidence</span><p>This public note provides aggregate scheduler counts and a simplified workflow reconstruction. It does not expose classroom, account, or server data.</p></div>
+              </div>
+            </div>
+          </section>
 
-          <h3>Personal study-note workflow</h3>
-          <div class="workflow" aria-label="Personal study-note workflow">
-            <span>Built-in Meet captions</span>
-            <span>Local personal capture</span>
-            <span>Summary and task extraction</span>
-            <span>Private study output</span>
-          </div>
+          <section class="case-chapter case-chapter-evidence reveal">
+            <p class="chapter-label">03 / What the records show</p>
+            <div class="metric-blocks">
+              <div><strong class="count-up" data-count-up data-count-target="5894" aria-label="5,894"><span aria-hidden="true">5,894</span></strong><span>Total scheduler records</span></div>
+              <div><strong class="count-up" data-count-up data-count-target="3254" aria-label="3,254"><span aria-hidden="true">3,254</span></strong><span>Successful</span></div>
+              <div><strong class="count-up" data-count-up data-count-target="2420" aria-label="2,420"><span aria-hidden="true">2,420</span></strong><span>Skipped</span></div>
+              <div><strong class="count-up" data-count-up data-count-target="220" aria-label="220"><span aria-hidden="true">220</span></strong><span>Failed</span></div>
+            </div>
+            <p class="evidence-caveat">These are execution records—not unique announcements or delivered messages. I did not measure time saved; the practical benefit was having fewer places to check.</p>
+          </section>
 
-          <h3>What the records show</h3>
-          <p>The recovered logs contain 5,894 scheduler records: 3,254 successful, 2,420 skipped, and 220 failed.
-            These are execution records, not unique announcements or delivered messages. I did not measure time saved;
-            the practical benefit was having fewer places to check.</p>
+          <section class="case-chapter reveal">
+            <p class="chapter-label">04 / Validation and limitations</p>
+            <div class="limitations-grid">
+              <div><span>01</span><p>No complete automated test suite or CI pipeline was present in the recovered prototype.</p></div>
+              <div><span>02</span><p>The caption-processing component was a short personal pilot, while other scheduled workflows ran longer.</p></div>
+              <div><span>03</span><p>A public-safe rebuild should use synthetic fixtures, least-privilege access, retries, deduplication tests, and explicit retention controls.</p></div>
+            </div>
+          </section>
 
-          <aside class="notice">
-            <h3>Privacy note</h3>
-            <p>Class and participant data are not shown. The caption component was a short personal pilot based on
-              captions visible in my Meet session. I would not deploy it for shared or institutional use without
-              permission, approved tooling, and clear retention rules.</p>
+          <aside class="privacy-note reveal">
+            <p class="chapter-label">Privacy boundary</p>
+            <h3>Visible captions were used only in a short personal pilot.</h3>
+            <p>Class and participant data are not shown. I would not deploy this component for shared or institutional use without permission, approved tooling, and clear retention rules.</p>
           </aside>
-
-          <h3>Limitations and next iteration</h3>
-          <ul>
-            <li>No complete automated test suite or CI pipeline was present in the recovered prototype.</li>
-            <li>The caption-processing component was a short pilot, while other scheduled workflows ran longer.</li>
-            <li>A public-safe rebuild should use synthetic fixtures, least-privilege access, retries, deduplication tests, and explicit retention controls.</li>
-          </ul>
         </article>
-      </div>
-    </section>
 
-    <section class="case-section" id="ticktick">
-      <div class="container">
-        <article class="case-article reveal">
-          <header class="case-header">
+        <article class="case-study" id="ticktick" data-case-study="archive">
+          <header class="case-study-header reveal">
+            <div class="case-study-number" aria-hidden="true">02</div>
             <div>
-              <p class="case-kicker">Data review · Backup and approval controls</p>
+              <p class="project-kicker">Personal data-quality workflow</p>
               <h2>Task Archive Safety Review</h2>
-              <p class="case-subtitle">Personal data-quality workflow</p>
+              <p class="case-deck">A human-in-the-loop process for reviewing a large personal archive without allowing status messages to substitute for verification.</p>
             </div>
-            <span class="case-status">Read-only review</span>
+            <span class="status">Read-only review</span>
           </header>
 
-          <div class="case-two-column">
-            <div class="case-block">
-              <h3>Problem</h3>
-              <p>Reviewing a large personal task archive manually was impractical, but allowing an agent to reorganize
-                it without safeguards risked irreversible loss of history and context.</p>
-            </div>
-            <div class="case-block">
-              <h3>What I did</h3>
-              <p>I wrote rules for identifying duplicates, required a read-only report before any change, compared the
-                claimed result with the actual data, and required a backup before considering edits.</p>
-            </div>
-          </div>
+          <dl class="case-fact-rail reveal">
+            <div><dt>Role</dt><dd>Requirements and review</dd></div>
+            <div><dt>Focus</dt><dd>Data validation and recovery</dd></div>
+            <div><dt>Scale</dt><dd>More than 10,000 task records</dd></div>
+            <div><dt>Control</dt><dd>Backup and approval required</dd></div>
+          </dl>
 
-          <h3>Safety process</h3>
-          <ol class="case-steps">
-            <li><span><strong>Define boundaries.</strong> Identify protected fields, acceptable matches, and success criteria.</span></li>
-            <li><span><strong>Analyze without mutation.</strong> Produce candidates and reports before changing source data.</span></li>
-            <li><span><strong>Verify claims.</strong> Compare the reported result with the actual destination state.</span></li>
-            <li><span><strong>Build a recoverable copy.</strong> Require a backup before any irreversible operation.</span></li>
-            <li><span><strong>Validate structure.</strong> Confirm parsed-row totals and identifier integrity across
-                more than 10,000 records.</span></li>
-            <li><span><strong>Gate destructive actions.</strong> Keep merge, archive, completion, and deletion behind human approval.</span></li>
-          </ol>
+          <section class="case-chapter reveal">
+            <p class="chapter-label">01 / Problem and risk</p>
+            <div class="case-prose-grid">
+              <h3>Manual review was impractical; unsupervised reorganization was unsafe.</h3>
+              <div><p>The archive had grown too large to review casually, but allowing an agent to reorganize it without safeguards risked irreversible loss of history and context.</p><p>The system needed to make uncertainty visible and preserve a recoverable path before any edit was considered.</p></div>
+            </div>
+          </section>
 
-          <aside class="notice">
-            <h3>Result and lesson</h3>
-            <p>The review produced a structurally checked copy of more than 10,000 task records. It also caught a
-              mismatch between an agent’s completion message and the actual result, reinforcing that status messages
-              still need verification.</p>
+          <section class="case-chapter reveal">
+            <p class="chapter-label">02 / Safety process</p>
+            <ol class="safety-steps">
+              <li><span>01</span><div><strong>Define boundaries.</strong><p>Identify protected fields, acceptable matches, and success criteria.</p></div></li>
+              <li><span>02</span><div><strong>Analyze without mutation.</strong><p>Produce candidates and reports before changing source data.</p></div></li>
+              <li><span>03</span><div><strong>Verify claims.</strong><p>Compare the reported result with the actual destination state.</p></div></li>
+              <li><span>04</span><div><strong>Build a recoverable copy.</strong><p>Require a backup before any irreversible operation.</p></div></li>
+              <li><span>05</span><div><strong>Validate structure.</strong><p>Confirm row totals and identifier integrity across more than 10,000 records.</p></div></li>
+              <li><span>06</span><div><strong>Gate destructive actions.</strong><p>Keep merge, archive, completion, and deletion behind human approval.</p></div></li>
+            </ol>
+          </section>
+
+          <section class="case-chapter assistance-verification reveal" aria-labelledby="archive-assistance-title">
+            <p class="chapter-label">Assistance &amp; verification</p>
+            <div class="case-prose-grid">
+              <h3 id="archive-assistance-title">The agent assisted with review, but its status message was not accepted as proof.</h3>
+              <div class="limitations-grid">
+                <div><span>AI assisted</span><p>An agent assisted with reviewing the large archive and reporting its result.</p></div>
+                <div><span>I decided</span><p>I defined the protected fields, acceptable matches, backup requirement, and human approval gates for destructive actions.</p></div>
+                <div><span>I verified</span><p>I compared the reported completion with the actual result and checked row totals and identifier integrity in a recoverable copy.</p></div>
+                <div><span>Available evidence</span><p>This public note provides the aggregate scale and a reconstruction of the review process. Personal task content is not published.</p></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="case-chapter case-result reveal">
+            <p class="chapter-label">03 / Result and lesson</p>
+            <div><strong class="count-up" data-count-up data-count-target="10000" data-count-suffix="+" aria-label="10,000 plus"><span aria-hidden="true">10,000+</span></strong><h3>records in a structurally checked copy</h3></div>
+            <p>The review caught a mismatch between an agent’s completion message and the actual result. The lesson was direct: reported completion still requires source-level verification.</p>
+          </section>
+
+          <aside class="privacy-note privacy-note-light reveal">
+            <p class="chapter-label">What this demonstrates</p>
+            <h3>Requirements, discrepancy review, backup planning, and approval controls.</h3>
+            <p>Public explanations use aggregate counts and fictional examples rather than personal task content.</p>
           </aside>
-
-          <h3>What it shows</h3>
-          <p>Requirement writing, data validation, discrepancy review, backup planning, and approval controls. Public
-            examples use fictional task data.</p>
         </article>
       </div>
+    </div>
+
+    <section class="case-contact">
+      <div class="shell reveal"><p class="eyebrow eyebrow-light">Next</p><h2>Return to the work,<br>or start a conversation.</h2><div><a class="button button-light" href="index.html#work">View selected work</a><a href="mailto:0charlesomagap@gmail.com">Email John Charles</a></div></div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="current-year">2026</span> John Charles Omagap.</p>
-    </div>
-  </footer>
-
-  <script src="script.js?v=20260727-2"></script>
+  <footer class="site-footer"><div class="shell footer-inner"><p>&copy; <span id="current-year">2026</span> John Charles Omagap.</p><p>Public-safe documentation / last reviewed August 2026.</p></div></footer>
+  <script src="script.js?v=20260816-1"></script>
 </body>
-
 </html>
