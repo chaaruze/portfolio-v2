@@ -9,7 +9,7 @@ These files are vendored so the portfolio does not depend on runtime icon CDNs. 
 | `opencode.svg` | OpenCode’s maintained `anomalyco/opencode` repository |
 | `antigravity.ico` | Google Antigravity’s official site favicon |
 | `openclaw.svg` | OpenClaw’s official site favicon |
-| `hermes-ai.png` | Hermes.ai mark supplied by the portfolio owner from the current official identity |
+| `hermes-ai.png` | Nous Research’s maintained `hermes-agent` repository, `website/static/img/logo.png` (1772×1799 source image) |
 | `sql-database.svg` | Portfolio-authored generic database symbol; SQL has no single official product logo |
 
 Source URLs were reviewed and downloaded in August 2026. Icons are displayed without recoloring or geometric distortion.
