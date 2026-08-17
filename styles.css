@@ -286,6 +286,7 @@ html:not(.project-sequences-enabled) .project-story-layout .project-story { grid
 .tech-tool-list { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0 0; padding: 0; list-style: none; }
 .tech-tool-list li { display: grid; width: 52px; height: 52px; place-items: center; border: 1px solid var(--line); background: rgba(255, 255, 255, .46); }
 .tech-tool-list img { width: 34px; height: 34px; object-fit: contain; }
+.tech-tool-list img.tech-tool-logo-hermes { width: 42px; height: 45px; max-width: none; clip-path: inset(11.7% 8.2% 12.5% 10.9%); object-fit: cover; }
 .skill-ledger { border-top: 1px solid var(--line); }
 .skill-ledger > div { display: grid; grid-template-columns: 160px 1fr; gap: 28px; padding: 20px 0; border-bottom: 1px solid var(--line); }
 .skill-ledger span { font-family: var(--mono); font-size: .84rem; font-weight: 600; text-transform: uppercase; }
@@ -781,7 +782,7 @@ html.count-bootstrap .count-up > [aria-hidden="true"] { visibility: hidden; }
 .work-intro::after { display: none; position: absolute; right: max(32px, calc((100vw - var(--shell)) / 2)); bottom: 24px; padding: 7px 10px; background: rgba(7, 17, 31, .38); color: #a4ddd6; content: "Next / field note 01 \2193"; font-family: var(--mono); font-size: .76rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
 @media (min-width: 901px) {
   .work-intro {
-    background: linear-gradient(180deg, #f3efe6 0%, #f3efe6 60%, #cad1ce 78%, #31566d 100%);
+    background: linear-gradient(180deg, #f3efe6 0%, #f3efe6 58%, #cad1ce 74%, #31566d 88%, #07111f 100%);
     color: var(--ink);
   }
   .work-intro::after { display: block; }
