@@ -8,7 +8,7 @@
   <meta name="description" content="Engineering field notes by John Charles Omagap: AI-assisted software, automation, and verification work while building cybersecurity foundations.">
   <meta name="author" content="John Charles Omagap">
   <meta name="theme-color" content="#f3efe6">
-  <script>document.documentElement.classList.add("js")</script>
+  <script>document.documentElement.classList.add("js","count-bootstrap");window.setTimeout(function(){document.documentElement.classList.remove("count-bootstrap")},2000)</script>
   <meta property="og:title" content="John Charles Omagap | Computer Science Portfolio">
   <meta property="og:description" content="AI-assisted software and automation work documented through human review, visible evidence, and honest limitations.">
   <meta property="og:type" content="website">
@@ -16,8 +16,7 @@
   <link rel="canonical" href="https://chaaruze.github.io/portfolio-v2/">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="stylesheet" href="critical.css?v=20260816-1">
-  <link rel="stylesheet" href="styles.css?v=20260816-1" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="styles.css?v=20260816-1"></noscript>
+  <link rel="stylesheet" href="styles.css?v=20260818-1">
   <noscript><style>
     @media (max-width: 900px) {
       .site-header { position: static; }
@@ -112,7 +111,7 @@
       </div>
     </section>
 
-    <section class="work-intro" id="work" data-indicator-section data-indicator-tone="light">
+    <section class="work-intro" id="work" data-indicator-section data-indicator-tone="dark">
       <div class="shell work-index-layout reveal">
         <div class="work-index-heading"><p class="eyebrow">Field index / selected evidence</p><h2>Problems, decisions,<br>and visible proof.</h2></div>
         <p class="work-index-intro">Each record separates the claim from the evidence: what I contributed, what I checked, what remains private, and what the result does not prove.</p>
@@ -294,17 +293,6 @@
       </div>
     </section>
 
-    <section class="additional-work" data-indicator-tone="dark">
-      <div class="shell">
-        <article class="additional-row reveal">
-          <div><span class="row-index">04</span><span class="status">Read-only review</span></div>
-          <div><p class="project-kicker">Field note 04 / Data quality</p><h2>Verified a safety process across 10,000+ task records.</h2></div>
-          <p>I defined duplicate rules, required a read-only report, checked claimed results against the source, and kept every destructive action behind backup and approval.</p>
-          <a href="case-studies.html#ticktick" data-transition-link="archive">Read the safety review <span aria-hidden="true">&#8594;</span></a>
-        </article>
-      </div>
-    </section>
-
     <section class="supporting-section" id="skills" data-indicator-tone="dark">
       <div class="shell supporting-grid">
         <div class="reveal"><p class="eyebrow">Technical ledger</p><h2>Technical stack<br>&amp; working method.</h2></div>
@@ -312,10 +300,44 @@
           <section class="tech-stack-blueprint reveal" aria-labelledby="tech-stack-title">
             <div class="tech-stack-heading"><p class="chapter-label">Evidence-linked capabilities / reviewed August 2026</p><h3 id="tech-stack-title">Technologies are shown where the work supports them.</h3></div>
             <div class="tech-stack-grid">
-              <div><span>01 / Capabilities</span><p>Frontend and backend web development; HTML, CSS, JavaScript, PHP, and SQL appear in documented work.</p></div>
-              <div><span>02 / Automation and data</span><p>Python, JavaScript, Discord workflows, and record-oriented review are evidenced in the automation case study.</p></div>
-              <div><span>03 / AI-assisted workflow</span><p>Codex and OpenCode are active workflow tools. Antigravity was used earlier, Hermes.ai is occasional and personal, and OpenClaw is project-specific while I continue exploring it.</p></div>
-              <div><span>04 / Security learning</span><p>Networking, operating systems, secure development, and threat-modeling foundations are in progress. <a class="ledger-link" href="https://tryhackme.com/p/chaaruze" target="_blank" rel="noopener noreferrer">TryHackMe profile ↗</a></p></div>
+              <div class="tech-stack-item">
+                <span class="tech-stack-label">01 / Project-proven web</span>
+                <ul class="tech-tool-list" aria-label="Project-proven web technologies">
+                  <li title="HTML5"><img src="images/tech/html5.svg" alt="HTML5" width="36" height="36" loading="lazy"></li>
+                  <li title="CSS3"><img src="images/tech/css3.svg" alt="CSS3" width="36" height="36" loading="lazy"></li>
+                  <li title="JavaScript"><img src="images/tech/javascript.svg" alt="JavaScript" width="36" height="36" loading="lazy"></li>
+                  <li title="PHP"><img src="images/tech/php.svg" alt="PHP" width="42" height="36" loading="lazy"></li>
+                  <li title="SQL database"><img src="images/tech/sql-database.svg" alt="SQL database" width="36" height="36" loading="lazy"></li>
+                </ul>
+                <p>HTML5, CSS3, JavaScript, PHP, and SQL appear in the documented project work.</p>
+              </div>
+              <div class="tech-stack-item">
+                <span class="tech-stack-label">02 / Automation and data</span>
+                <ul class="tech-tool-list" aria-label="Automation and data technologies">
+                  <li title="Python"><img src="images/tech/python.svg" alt="Python" width="36" height="36" loading="lazy"></li>
+                  <li title="JavaScript"><img src="images/tech/javascript.svg" alt="JavaScript" width="36" height="36" loading="lazy"></li>
+                  <li title="Discord"><img src="images/tech/discord.svg" alt="Discord" width="36" height="36" loading="lazy"></li>
+                </ul>
+                <p>Python, JavaScript, Discord workflows, and record-oriented review are evidenced in the automation case study.</p>
+              </div>
+              <div class="tech-stack-item">
+                <span class="tech-stack-label">03 / AI-assisted workflow</span>
+                <ul class="tech-tool-list" aria-label="AI-assisted workflow tools">
+                  <li title="OpenAI Codex"><img src="images/tech/openai.svg" alt="OpenAI mark representing Codex" width="36" height="36" loading="lazy"></li>
+                  <li title="OpenCode"><img src="images/tech/opencode.svg" alt="OpenCode" width="36" height="36" loading="lazy"></li>
+                  <li title="Google Antigravity"><img src="images/tech/antigravity.ico" alt="Google Antigravity" width="36" height="36" loading="lazy"></li>
+                  <li title="OpenClaw"><img src="images/tech/openclaw.svg" alt="OpenClaw" width="36" height="36" loading="lazy"></li>
+                  <li title="Nous Research Hermes Agent"><img src="images/tech/hermes-agent.svg" alt="Nous Research Hermes Agent" width="36" height="36" loading="lazy"></li>
+                </ul>
+                <p>Codex and OpenCode are active. Google Antigravity was used earlier, Nous Research Hermes Agent is occasional and personal, and OpenClaw is project-specific and still being explored.</p>
+              </div>
+              <div class="tech-stack-item">
+                <span class="tech-stack-label">04 / Security learning</span>
+                <ul class="tech-tool-list" aria-label="Security learning platforms and topics">
+                  <li title="TryHackMe"><img src="images/tech/tryhackme.svg" alt="TryHackMe" width="36" height="36" loading="lazy"></li>
+                </ul>
+                <p>TryHackMe activity supports ongoing study in networking, operating systems, secure development, and threat modeling. <a class="ledger-link" href="https://tryhackme.com/p/chaaruze" target="_blank" rel="noopener noreferrer">Open TryHackMe profile ↗</a></p>
+              </div>
             </div>
           </section>
           <div class="skill-ledger reveal">
@@ -332,19 +354,30 @@
       </div>
     </section>
 
+    <section class="additional-work" data-indicator-tone="dark">
+      <div class="shell">
+        <article class="additional-row reveal">
+          <div><span class="row-index">04</span><span class="status">Read-only review</span></div>
+          <div><p class="project-kicker">Additional evidence / Data quality</p><h2>Verified a safety process across 10,000+ task records.</h2></div>
+          <p>I defined duplicate rules, required a read-only report, checked claimed results against the source, and kept every destructive action behind backup and approval.</p>
+          <a href="case-studies.html#ticktick" data-transition-link="archive">Read the safety review <span aria-hidden="true">&#8594;</span></a>
+        </article>
+      </div>
+    </section>
+
     <section class="credentials-section" aria-labelledby="credentials-title" data-indicator-tone="dark">
       <div class="shell">
         <div class="section-line-heading reveal"><p class="eyebrow">Verified credentials</p><h2 id="credentials-title">Supporting, not competing with, the work.</h2></div>
         <div class="credential-ledger">
           <article class="credential-row reveal">
             <div class="credential-score"><strong class="count-up" data-count-up data-count-target="66" aria-label="66"><span aria-hidden="true">66</span></strong><span>/100</span></div>
-            <div><p class="project-kicker">English proficiency</p><h3>EF SET C1 Advanced</h3><p>Awarded August 1, 2025. Reading and listening were assessed at C2; writing and speaking at B2.</p></div>
-            <button class="credential-thumb" type="button" data-modal-src="images/efset-c1-certificate-thumb.webp" data-modal-alt="EF SET certificate showing a score of 66 out of 100 and C1 Advanced proficiency"><img src="images/efset-c1-certificate-thumb.webp" alt="EF SET C1 certificate preview" width="640" height="400" loading="lazy" decoding="async"><span>View certificate</span></button><a href="https://cert.efset.org/en/ox3wuJ" target="_blank" rel="noopener noreferrer">Verify certificate <span aria-hidden="true">&#8599;</span></a>
+            <div class="credential-copy"><p class="project-kicker">English proficiency</p><h3>EF SET C1 Advanced</h3><p>Awarded August 1, 2025. Reading and listening were assessed at C2; writing and speaking at B2.</p><a href="https://cert.efset.org/en/ox3wuJ" target="_blank" rel="noopener noreferrer">Verify certificate <span aria-hidden="true">&#8599;</span></a></div>
+            <button class="credential-thumb" type="button" data-modal-src="images/efset-c1-certificate-thumb.webp" data-modal-alt="EF SET certificate showing a score of 66 out of 100 and C1 Advanced proficiency"><img src="images/efset-c1-certificate-thumb.webp" alt="Full EF SET C1 certificate showing a score of 66 out of 100" width="720" height="1018" loading="lazy" decoding="async"><span>Enlarge certificate</span></button>
           </article>
           <article class="credential-row credential-row-small reveal">
             <div class="credential-score"><strong>2024</strong></div>
-            <div><p class="project-kicker">Seminar attendance</p><h3>Tech Horizon: Navigating Future Trends in IT</h3><p>STI College Alabang / May 31, 2024</p></div>
-            <button class="credential-thumb" type="button" data-modal-src="images/certificate-1.jpg" data-modal-alt="Tech Horizon seminar attendance certificate"><img src="images/certificate-1.jpg" alt="Tech Horizon seminar attendance certificate preview" width="1200" height="800" loading="lazy" decoding="async"><span>View certificate</span></button><button class="modal-text-trigger" type="button" data-modal-src="images/certificate-1.jpg" data-modal-alt="Tech Horizon seminar attendance certificate">Open certificate</button>
+            <div class="credential-copy"><p class="project-kicker">Seminar attendance</p><h3>Tech Horizon: Navigating Future Trends in IT</h3><p>STI College Alabang / May 31, 2024</p><button class="modal-text-trigger" type="button" data-modal-src="images/certificate-1.jpg" data-modal-alt="Tech Horizon seminar attendance certificate">Open certificate</button></div>
+            <button class="credential-thumb" type="button" data-modal-src="images/certificate-1.jpg" data-modal-alt="Tech Horizon seminar attendance certificate"><img src="images/certificate-1.jpg" alt="Full Tech Horizon seminar attendance certificate" width="1755" height="1241" loading="lazy" decoding="async"><span>Enlarge certificate</span></button>
           </article>
         </div>
       </div>
@@ -385,6 +418,6 @@
   </dialog>
 
   <footer class="site-footer" data-indicator-tone="light"><div class="shell footer-inner"><p>&copy; <span id="current-year">2026</span> John Charles Omagap.</p><p><a href="design-history.html">Design history</a> / AI-assisted / human-reviewed.</p></div></footer>
-  <script src="script.js?v=20260816-1"></script>
+  <script src="script.js?v=20260818-2"></script>
 </body>
 </html>

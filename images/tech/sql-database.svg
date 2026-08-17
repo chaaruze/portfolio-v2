@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title">
+  <title id="title">SQL database</title>
+  <defs>
+    <linearGradient id="sql-gradient" x1="8" y1="4" x2="40" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1683c7"/>
+      <stop offset="1" stop-color="#075985"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="24" cy="10" rx="15" ry="6" fill="url(#sql-gradient)"/>
+  <path d="M9 10v10c0 3.3 6.7 6 15 6s15-2.7 15-6V10c0 3.3-6.7 6-15 6S9 13.3 9 10Z" fill="url(#sql-gradient)" opacity=".92"/>
+  <path d="M9 21v10c0 3.3 6.7 6 15 6s15-2.7 15-6V21c0 3.3-6.7 6-15 6S9 24.3 9 21Z" fill="url(#sql-gradient)" opacity=".82"/>
+  <path d="M9 32v6c0 3.3 6.7 6 15 6s15-2.7 15-6v-6c0 3.3-6.7 6-15 6S9 35.3 9 32Z" fill="url(#sql-gradient)" opacity=".72"/>
+</svg>

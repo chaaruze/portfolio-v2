@@ -59,11 +59,13 @@
     const suffix = element.dataset.countSuffix || "";
     const output = element.querySelector("[aria-hidden='true']") || element;
     output.textContent = `${numberFormatter.format(value)}${suffix}`;
+    element.dataset.countComplete = "true";
+    element.classList.add("is-count-visible");
   };
 
   const animateCount = (element) => {
-    if (element.dataset.countComplete === "true") return;
-    element.dataset.countComplete = "true";
+    if (element.dataset.countComplete === "true" || element.dataset.countStarted === "true") return;
+    element.dataset.countStarted = "true";
     const target = Number(element.dataset.countTarget || 0);
     const suffix = element.dataset.countSuffix || "";
     const output = element.querySelector("[aria-hidden='true']") || element;
@@ -77,12 +79,19 @@
       else finishCount(element);
     };
     output.textContent = `0${suffix}`;
+    element.classList.add("is-count-visible");
     window.requestAnimationFrame(step);
   };
 
   if (reduceMotionQuery.matches || !("IntersectionObserver" in window)) {
     countTargets.forEach(finishCount);
   } else {
+    countTargets.forEach((element) => {
+      const suffix = element.dataset.countSuffix || "";
+      const output = element.querySelector("[aria-hidden='true']") || element;
+      output.textContent = `0${suffix}`;
+      element.classList.add("is-count-visible");
+    });
     const countOwners = [...new Set(countTargets.map((target) => target.closest(".reveal") || target))];
     const countObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
@@ -96,6 +105,7 @@
     }, { threshold: 0.32, rootMargin: "0px 0px -8%" });
     countOwners.forEach((owner) => countObserver.observe(owner));
   }
+  document.documentElement.classList.remove("count-bootstrap");
 
   const mediaModal = document.getElementById("media-modal");
   const modalImage = mediaModal?.querySelector(".media-modal-canvas img");
@@ -110,6 +120,15 @@
   };
 
   modalClose?.addEventListener("click", () => mediaModal.close());
+  mediaModal?.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    mediaModal.close();
+  });
+  mediaModal?.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    event.preventDefault();
+    mediaModal.close();
+  });
   mediaModal?.addEventListener("click", (event) => {
     if (event.target === mediaModal) mediaModal.close();
   });
@@ -152,34 +171,6 @@
   document.querySelectorAll(".modal-text-trigger, .credential-thumb").forEach((trigger) => {
     trigger.addEventListener("click", () => openMediaModal(trigger));
   });
-
-  const mobileProjectIntroQuery = window.matchMedia("(max-width: 900px)");
-  const mobileProjectSections = [...document.querySelectorAll("[data-project-sequence]")];
-  let mobileProjectIntroObserver;
-  const setMobileProjectIntros = () => {
-    mobileProjectIntroObserver?.disconnect();
-    if (!mobileProjectIntroQuery.matches || reduceMotionQuery.matches || !("IntersectionObserver" in window)) {
-      mobileProjectSections.forEach((section) => section.classList.add("is-mobile-intro-visible"));
-      return;
-    }
-    mobileProjectIntroObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-mobile-intro-visible");
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.24, rootMargin: "0px 0px -12%" });
-    mobileProjectSections.forEach((section) => {
-      section.classList.remove("is-mobile-intro-visible");
-      mobileProjectIntroObserver.observe(section);
-    });
-  };
-  setMobileProjectIntros();
-  if (typeof mobileProjectIntroQuery.addEventListener === "function") {
-    mobileProjectIntroQuery.addEventListener("change", setMobileProjectIntros);
-  } else {
-    mobileProjectIntroQuery.addListener(setMobileProjectIntros);
-  }
 
   const pageSections = internalNavLinks
     .map((link) => document.querySelector(link.getAttribute("href")))
@@ -225,7 +216,8 @@
   }
 
   const projectSequences = [...document.querySelectorAll("[data-project-sequence] .project-scroll-track")];
-  const projectSequenceQuery = window.matchMedia("(min-width: 901px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)");
+  const projectSequenceQuery = window.matchMedia("(min-height: 560px) and (prefers-reduced-motion: no-preference)");
+  const desktopProjectSequenceQuery = window.matchMedia("(min-width: 901px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)");
   const presentationPause = 1400;
   const settleFallback = 840;
   const lockFailsafe = 3200;
@@ -252,7 +244,7 @@
 
   const updateProjectSequenceOffsets = () => {
     measureProjectSummaries();
-    if (!projectSequenceQuery.matches) return;
+    if (!desktopProjectSequenceQuery.matches) return;
     projectSequences.forEach((track) => {
       const layout = track.querySelector(".project-sequence-layout");
       const media = track.querySelector(".project-sequence-media");
@@ -297,8 +289,10 @@
     track.classList.add("is-sequence-active", "is-sequence-settled", "is-sequence-complete");
     completedProjectSequences.add(track);
     setStoryAvailability(track, true);
-    const trigger = track.querySelector(".project-sequence-trigger");
-    if (trigger) projectSequenceObserver?.unobserve(trigger);
+    const target = desktopProjectSequenceQuery.matches
+      ? track.querySelector(".project-sequence-trigger")
+      : track.querySelector(".project-sequence-sticky");
+    if (target) projectSequenceObserver?.unobserve(target);
     if (lockedScrollY !== null) {
       window.scrollTo(0, lockedScrollY);
       window.requestAnimationFrame(() => {
@@ -320,8 +314,10 @@
 
   const lockProjectSequence = (track) => {
     if (activeProjectLock || completedProjectSequences.has(track)) return;
-    const cover = track.querySelector(".project-sequence-cover");
-    const targetY = Math.max(0, window.scrollY + (cover?.getBoundingClientRect().top || 0));
+    const anchor = desktopProjectSequenceQuery.matches
+      ? track.querySelector(".project-sequence-cover")
+      : track.querySelector(".project-sequence-sticky");
+    const targetY = Math.max(0, window.scrollY + (anchor?.getBoundingClientRect().top || 0));
     const previousScrollBehavior = document.documentElement.style.scrollBehavior;
     document.documentElement.style.scrollBehavior = "auto";
     window.scrollTo(0, targetY);
@@ -359,20 +355,33 @@
     projectSequenceObserver?.disconnect();
     if (!projectSequenceQuery.matches || !projectSequences.length || !("IntersectionObserver" in window)) return;
 
+    const requiredRatio = desktopProjectSequenceQuery.matches ? 0.88 : 0.12;
+    const thresholds = desktopProjectSequenceQuery.matches ? [0.88, 0.92, 1] : [0, 0.12, 0.35, 0.65, 0.88];
+
     projectSequenceObserver = new IntersectionObserver((entries) => {
       const candidate = entries
-        .filter((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.88)
+        .filter((entry) => entry.isIntersecting && entry.intersectionRatio >= requiredRatio)
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!candidate || activeProjectLock) return;
+      if (!candidate) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting || entry.boundingClientRect.bottom >= 0) return;
+          const passedTrack = entry.target.closest(".project-scroll-track");
+          if (passedTrack && !completedProjectSequences.has(passedTrack)) finishProjectSequence(passedTrack);
+        });
+        return;
+      }
+      if (activeProjectLock) return;
       const track = candidate.target.closest(".project-scroll-track");
       if (!track || completedProjectSequences.has(track)) return;
       lockProjectSequence(track);
-    }, { threshold: [0.88, 0.92, 1] });
+    }, { threshold: thresholds });
 
     projectSequences.forEach((track) => {
       if (completedProjectSequences.has(track)) return;
-      const trigger = track.querySelector(".project-sequence-trigger");
-      if (trigger) projectSequenceObserver.observe(trigger);
+      const target = desktopProjectSequenceQuery.matches
+        ? track.querySelector(".project-sequence-trigger")
+        : track.querySelector(".project-sequence-sticky");
+      if (target) projectSequenceObserver.observe(target);
     });
   };
 
@@ -423,8 +432,10 @@
   window.addEventListener("pagehide", releaseProjectLock);
   if (typeof projectSequenceQuery.addEventListener === "function") {
     projectSequenceQuery.addEventListener("change", setProjectSequenceEligibility);
+    desktopProjectSequenceQuery.addEventListener("change", setProjectSequenceEligibility);
   } else {
     projectSequenceQuery.addListener(setProjectSequenceEligibility);
+    desktopProjectSequenceQuery.addListener(setProjectSequenceEligibility);
   }
 
   const indicator = document.querySelector(".page-scroll-indicator");
