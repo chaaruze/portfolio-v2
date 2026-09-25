@@ -782,7 +782,7 @@ html.count-bootstrap .count-up > [aria-hidden="true"] { visibility: hidden; }
 .work-intro::after { display: none; position: absolute; right: max(32px, calc((100vw - var(--shell)) / 2)); bottom: 24px; padding: 7px 10px; background: rgba(7, 17, 31, .38); color: #a4ddd6; content: "Next / field note 01 \2193"; font-family: var(--mono); font-size: .76rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
 @media (min-width: 901px) {
   .work-intro {
-    background: linear-gradient(180deg, #f3efe6 0%, #f3efe6 58%, #cad1ce 74%, #31566d 88%, #07111f 100%);
+    background: var(--paper);
     color: var(--ink);
   }
   .work-intro::after { display: block; }
@@ -841,7 +841,7 @@ html.count-bootstrap .count-up > [aria-hidden="true"] { visibility: hidden; }
 @media (min-width: 901px) {
   .work-intro .eyebrow, .work-intro .work-index-list span { color: #076b72; }
   .work-intro .work-index-intro, .work-intro .work-index-list small { color: #3c5160; }
-  .work-intro .work-index-list { border-color: rgba(13, 27, 49, .24); background: rgba(243, 239, 230, .34); }
+  .work-intro .work-index-list { border-color: rgba(13, 27, 49, .24); background: rgba(255, 253, 248, .72); }
   .work-intro .work-index-list li + li { border-color: rgba(13, 27, 49, .24); }
   .work-intro .work-index-list a { color: var(--ink); }
   .work-intro .work-index-list a:hover, .work-intro .work-index-list a:focus-visible { background: rgba(7, 107, 114, .09); color: var(--ink); }

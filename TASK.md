@@ -10,7 +10,7 @@ This file tracks decisions, evidence, and release approvals that require John Ch
 
 ## Desktop design approval
 
-- [x] Select the warm-paper-to-steel Work-section background after comparing both prototypes.
+- [ ] Review and approve the solid warm-paper Work-section background (the gradient transition has been removed).
 - [ ] Review the Design History descriptions and milestone screenshots.
 - [ ] Approve the desktop layout and interactions before mobile-specific refinement resumes.
 
